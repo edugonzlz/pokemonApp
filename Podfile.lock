@@ -1,0 +1,22 @@
+PODS:
+  - CommonCore (1.0.0)
+  - PokemonServices (1.0.0):
+    - CommonCore
+
+DEPENDENCIES:
+  - CommonCore (from `Modules/CommonCore`)
+  - PokemonServices (from `Modules/PokemonServices`)
+
+EXTERNAL SOURCES:
+  CommonCore:
+    :path: Modules/CommonCore
+  PokemonServices:
+    :path: Modules/PokemonServices
+
+SPEC CHECKSUMS:
+  CommonCore: a2d3087feef2f2aeacde58388567a58b245708b5
+  PokemonServices: a5117b2ea60307275f97027509f79b592256161d
+
+PODFILE CHECKSUM: 1302ee3eead2623e90c23dc060f2bdd4a85a2057
+
+COCOAPODS: 1.11.2
