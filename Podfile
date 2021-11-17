@@ -9,7 +9,7 @@ workspace 'App'
 source 'https://github.com/CocoaPods/Specs.git'
 
 def dev_pods
-  pod 'PokemonServices', :path => 'Modules/PokemonServices' #, :testspecs => ['ModuloATests', 'ModuloAUITests']
+  pod 'PokemonServices', :path => 'Modules/PokemonServices', :testspecs => ['PokemonTests']
 
   pod 'CommonCore', :path => 'Modules/CommonCore'
 

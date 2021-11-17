@@ -14,4 +14,13 @@ Pod::Spec.new do |s|
   s.source_files = '**/*'
 
   s.dependency 'CommonCore'
+
+  s.test_spec 'PokemonTests' do |test_spec|
+#    test_spec.requires_app_host = true
+
+    test_spec.source_files = [
+      'PokemonTests/**/*.{h,m,swift}'
+    ]
+  end
+
 end
