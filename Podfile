@@ -12,6 +12,9 @@ def dev_pods
   pod 'PokemonServices', :path => 'Modules/PokemonServices' #, :testspecs => ['ModuloATests', 'ModuloAUITests']
 
   pod 'CommonCore', :path => 'Modules/CommonCore'
+
+  pod 'CommonUI', :path => 'Modules/CommonUI'
+
 end
 
 target 'PokemonWorld' do
