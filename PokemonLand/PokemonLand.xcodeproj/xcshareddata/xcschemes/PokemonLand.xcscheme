@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F88A64D5273552B4004B12AB"
-               BuildableName = "PokemonWorld.app"
-               BlueprintName = "PokemonWorld"
-               ReferencedContainer = "container:PokemonWorld.xcodeproj">
+               BlueprintIdentifier = "F88A65532735530A004B12AB"
+               BuildableName = "PokemonLand.app"
+               BlueprintName = "PokemonLand"
+               ReferencedContainer = "container:PokemonLand.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +32,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F88A64EB273552B5004B12AB"
-               BuildableName = "PokemonWorldTests.xctest"
-               BlueprintName = "PokemonWorldTests"
-               ReferencedContainer = "container:PokemonWorld.xcodeproj">
+               BlueprintIdentifier = "F88A65632735530B004B12AB"
+               BuildableName = "PokemonLandTests.xctest"
+               BlueprintName = "PokemonLandTests"
+               ReferencedContainer = "container:PokemonLand.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F88A64F5273552B5004B12AB"
-               BuildableName = "PokemonWorldUITests.xctest"
-               BlueprintName = "PokemonWorldUITests"
-               ReferencedContainer = "container:PokemonWorld.xcodeproj">
+               BlueprintIdentifier = "F88A656D2735530B004B12AB"
+               BuildableName = "PokemonLandUITests.xctest"
+               BlueprintName = "PokemonLandUITests"
+               ReferencedContainer = "container:PokemonLand.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -64,15 +64,15 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F88A64D5273552B4004B12AB"
-            BuildableName = "PokemonWorld.app"
-            BlueprintName = "PokemonWorld"
-            ReferencedContainer = "container:PokemonWorld.xcodeproj">
+            BlueprintIdentifier = "F88A65532735530A004B12AB"
+            BuildableName = "PokemonLand.app"
+            BlueprintName = "PokemonLand"
+            ReferencedContainer = "container:PokemonLand.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Release - Production"
+      buildConfiguration = "Release - Staging"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -81,10 +81,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F88A64D5273552B4004B12AB"
-            BuildableName = "PokemonWorld.app"
-            BlueprintName = "PokemonWorld"
-            ReferencedContainer = "container:PokemonWorld.xcodeproj">
+            BlueprintIdentifier = "F88A65532735530A004B12AB"
+            BuildableName = "PokemonLand.app"
+            BlueprintName = "PokemonLand"
+            ReferencedContainer = "container:PokemonLand.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
@@ -92,7 +92,7 @@
       buildConfiguration = "Debug - Staging">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release - Production"
+      buildConfiguration = "Release - Staging"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

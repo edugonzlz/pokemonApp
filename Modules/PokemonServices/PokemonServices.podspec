@@ -11,16 +11,16 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '13.0'
   s.requires_arc = true
 
-  s.source_files = '**/*'
-
-  s.dependency 'CommonCore'
-
   s.test_spec 'PokemonTests' do |test_spec|
 #    test_spec.requires_app_host = true
 
     test_spec.source_files = [
-      'PokemonTests/**/*.{h,m,swift}'
+      'PokemonTests/**/*.swift'
     ]
   end
+
+  s.source_files = 'Source/**/*'
+
+  s.dependency 'CommonCore'
 
 end

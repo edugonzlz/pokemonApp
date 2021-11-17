@@ -23,7 +23,7 @@ public class PokemonService: PokemonServiceProtocol {
 
 //MARK - Result
 public extension PokemonService {
-    public func getPokemons(pagination: PaginationParameters?, completion: @escaping (Result<PokemonList, Error>) -> Void) {
+    func getPokemons(pagination: PaginationParameters?, completion: @escaping (Result<PokemonList, Error>) -> Void) {
         do {
             let urlRequest = try Endpoints.getPokemons(pagination: pagination).makeRequest()
             apiClient.request(urlRequest: urlRequest,
@@ -33,7 +33,7 @@ public extension PokemonService {
         }
     }
 
-    public func getPokemon(id: Int, completion: @escaping (Result<Pokemon, Error>) -> Void) {
+    func getPokemon(id: Int, completion: @escaping (Result<Pokemon, Error>) -> Void) {
         do {
             let urlRequest = try Endpoints.getPokemonById(id).makeRequest()
             apiClient.request(urlRequest: urlRequest,
