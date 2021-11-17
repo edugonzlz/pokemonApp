@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9C97A78B04E899D0138D5AB5 /* Pods_PokemonWorld.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505DEB3DD2538741070D3609 /* Pods_PokemonWorld.framework */; };
+		F834418F2745185900E90EAD /* Staging.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F834418D2745185900E90EAD /* Staging.xcconfig */; };
+		F83441902745185900E90EAD /* Production.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F834418E2745185900E90EAD /* Production.xcconfig */; };
 		F84D975E273974000019A176 /* UIView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84D975C273974000019A176 /* UIView+extensions.swift */; };
 		F84D975F273974000019A176 /* UITableView+deselectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84D975D273974000019A176 /* UITableView+deselectRow.swift */; };
 		F84D9764273974120019A176 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84D9761273974120019A176 /* AlertController.swift */; };
@@ -55,9 +57,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1BD317B0416A4C3521ED56A9 /* Pods-PokemonWorld.release - staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonWorld.release - staging.xcconfig"; path = "Target Support Files/Pods-PokemonWorld/Pods-PokemonWorld.release - staging.xcconfig"; sourceTree = "<group>"; };
 		505DEB3DD2538741070D3609 /* Pods_PokemonWorld.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonWorld.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		982C4011627640E064487FE8 /* Pods-PokemonWorld.release - production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonWorld.release - production.xcconfig"; path = "Target Support Files/Pods-PokemonWorld/Pods-PokemonWorld.release - production.xcconfig"; sourceTree = "<group>"; };
 		9B764685E453A77FC8D56664 /* Pods-PokemonWorld.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonWorld.debug.xcconfig"; path = "Target Support Files/Pods-PokemonWorld/Pods-PokemonWorld.debug.xcconfig"; sourceTree = "<group>"; };
+		B0806D0FDC8ABD51ACC8D90F /* Pods-PokemonWorld.debug - staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonWorld.debug - staging.xcconfig"; path = "Target Support Files/Pods-PokemonWorld/Pods-PokemonWorld.debug - staging.xcconfig"; sourceTree = "<group>"; };
 		B12BC23553E9C74B690DAE29 /* Pods-PokemonWorld.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonWorld.release.xcconfig"; path = "Target Support Files/Pods-PokemonWorld/Pods-PokemonWorld.release.xcconfig"; sourceTree = "<group>"; };
+		B3EA39FBF4771A780380EE57 /* Pods-PokemonWorld.debug - production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonWorld.debug - production.xcconfig"; path = "Target Support Files/Pods-PokemonWorld/Pods-PokemonWorld.debug - production.xcconfig"; sourceTree = "<group>"; };
+		F834418D2745185900E90EAD /* Staging.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
+		F834418E2745185900E90EAD /* Production.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		F84D975C273974000019A176 /* UIView+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extensions.swift"; sourceTree = "<group>"; };
 		F84D975D273974000019A176 /* UITableView+deselectRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+deselectRow.swift"; sourceTree = "<group>"; };
 		F84D9761273974120019A176 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
@@ -122,6 +130,10 @@
 			children = (
 				9B764685E453A77FC8D56664 /* Pods-PokemonWorld.debug.xcconfig */,
 				B12BC23553E9C74B690DAE29 /* Pods-PokemonWorld.release.xcconfig */,
+				B0806D0FDC8ABD51ACC8D90F /* Pods-PokemonWorld.debug - staging.xcconfig */,
+				B3EA39FBF4771A780380EE57 /* Pods-PokemonWorld.debug - production.xcconfig */,
+				982C4011627640E064487FE8 /* Pods-PokemonWorld.release - production.xcconfig */,
+				1BD317B0416A4C3521ED56A9 /* Pods-PokemonWorld.release - staging.xcconfig */,
 			);
 			name = Pods;
 			path = ../Pods;
@@ -133,6 +145,15 @@
 				505DEB3DD2538741070D3609 /* Pods_PokemonWorld.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F834418C2745184B00E90EAD /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				F834418D2745185900E90EAD /* Staging.xcconfig */,
+				F834418E2745185900E90EAD /* Production.xcconfig */,
+			);
+			path = Configurations;
 			sourceTree = "<group>";
 		};
 		F84D975B273973F90019A176 /* UIKit+extensions */ = {
@@ -220,6 +241,7 @@
 		F88A64D8273552B4004B12AB /* PokemonWorld */ = {
 			isa = PBXGroup;
 			children = (
+				F834418C2745184B00E90EAD /* Configurations */,
 				F8B6C0FF273946EA00191204 /* App */,
 				F84D976C2739752B0019A176 /* Scenes */,
 				F84D9760273974080019A176 /* Views */,
@@ -390,9 +412,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F88A64E6273552B5004B12AB /* LaunchScreen.storyboard in Resources */,
+				F83441902745185900E90EAD /* Production.xcconfig in Resources */,
 				F8710C2F273BC1C100C6DB42 /* DetailViewController.xib in Resources */,
 				F84D976B273974220019A176 /* LoadingView.xib in Resources */,
 				F8AA8F38273ADBA4003A47A4 /* PokemonCollectionViewCell.xib in Resources */,
+				F834418F2745185900E90EAD /* Staging.xcconfig in Resources */,
 				F8B6C0D3273942F500191204 /* ListViewController.xib in Resources */,
 				F8CA643C273AF75A00E4DDFA /* Assets.xcassets in Resources */,
 			);
@@ -525,7 +549,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		F88A64FE273552B5004B12AB /* Debug */ = {
+		F83441912745189F00E90EAD /* Debug - Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -584,9 +608,86 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = "Debug - Production";
 		};
-		F88A64FF273552B5004B12AB /* Release */ = {
+		F83441922745189F00E90EAD /* Debug - Production */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F834418E2745185900E90EAD /* Production.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LS8HYFSC3B;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PokemonWorld/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.edugonzlz.PokemonWorld;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Debug - Production";
+		};
+		F83441932745189F00E90EAD /* Debug - Production */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LS8HYFSC3B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.edugonzlz.PokemonWorldTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokemonWorld.app/PokemonWorld";
+			};
+			name = "Debug - Production";
+		};
+		F83441942745189F00E90EAD /* Debug - Production */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LS8HYFSC3B;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.edugonzlz.PokemonWorldUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PokemonWorld;
+			};
+			name = "Debug - Production";
+		};
+		F8344195274518C700E90EAD /* Release - Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -639,11 +740,11 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = "Release - Staging";
 		};
-		F88A6501273552B5004B12AB /* Debug */ = {
+		F8344196274518C700E90EAD /* Release - Staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B764685E453A77FC8D56664 /* Pods-PokemonWorld.debug.xcconfig */;
+			baseConfigurationReference = F834418D2745185900E90EAD /* Staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -668,11 +769,175 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Debug;
+			name = "Release - Staging";
 		};
-		F88A6502273552B5004B12AB /* Release */ = {
+		F8344197274518C700E90EAD /* Release - Staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B12BC23553E9C74B690DAE29 /* Pods-PokemonWorld.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LS8HYFSC3B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.edugonzlz.PokemonWorldTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokemonWorld.app/PokemonWorld";
+			};
+			name = "Release - Staging";
+		};
+		F8344198274518C700E90EAD /* Release - Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LS8HYFSC3B;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.edugonzlz.PokemonWorldUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PokemonWorld;
+			};
+			name = "Release - Staging";
+		};
+		F88A64FE273552B5004B12AB /* Debug - Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = "Debug - Staging";
+		};
+		F88A64FF273552B5004B12AB /* Release - Production */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release - Production";
+		};
+		F88A6501273552B5004B12AB /* Debug - Staging */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F834418D2745185900E90EAD /* Staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -697,9 +962,38 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Release;
+			name = "Debug - Staging";
 		};
-		F88A6504273552B5004B12AB /* Debug */ = {
+		F88A6502273552B5004B12AB /* Release - Production */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F834418E2745185900E90EAD /* Production.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LS8HYFSC3B;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PokemonWorld/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.edugonzlz.PokemonWorld;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Release - Production";
+		};
+		F88A6504273552B5004B12AB /* Debug - Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -722,9 +1016,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokemonWorld.app/PokemonWorld";
 			};
-			name = Debug;
+			name = "Debug - Staging";
 		};
-		F88A6505273552B5004B12AB /* Release */ = {
+		F88A6505273552B5004B12AB /* Release - Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -747,9 +1041,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokemonWorld.app/PokemonWorld";
 			};
-			name = Release;
+			name = "Release - Production";
 		};
-		F88A6507273552B5004B12AB /* Debug */ = {
+		F88A6507273552B5004B12AB /* Debug - Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -770,9 +1064,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PokemonWorld;
 			};
-			name = Debug;
+			name = "Debug - Staging";
 		};
-		F88A6508273552B5004B12AB /* Release */ = {
+		F88A6508273552B5004B12AB /* Release - Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -793,7 +1087,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PokemonWorld;
 			};
-			name = Release;
+			name = "Release - Production";
 		};
 /* End XCBuildConfiguration section */
 
@@ -801,38 +1095,46 @@
 		F88A64D1273552B4004B12AB /* Build configuration list for PBXProject "PokemonWorld" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F88A64FE273552B5004B12AB /* Debug */,
-				F88A64FF273552B5004B12AB /* Release */,
+				F88A64FE273552B5004B12AB /* Debug - Staging */,
+				F83441912745189F00E90EAD /* Debug - Production */,
+				F88A64FF273552B5004B12AB /* Release - Production */,
+				F8344195274518C700E90EAD /* Release - Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Debug - Staging";
 		};
 		F88A6500273552B5004B12AB /* Build configuration list for PBXNativeTarget "PokemonWorld" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F88A6501273552B5004B12AB /* Debug */,
-				F88A6502273552B5004B12AB /* Release */,
+				F88A6501273552B5004B12AB /* Debug - Staging */,
+				F83441922745189F00E90EAD /* Debug - Production */,
+				F88A6502273552B5004B12AB /* Release - Production */,
+				F8344196274518C700E90EAD /* Release - Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Debug - Staging";
 		};
 		F88A6503273552B5004B12AB /* Build configuration list for PBXNativeTarget "PokemonWorldTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F88A6504273552B5004B12AB /* Debug */,
-				F88A6505273552B5004B12AB /* Release */,
+				F88A6504273552B5004B12AB /* Debug - Staging */,
+				F83441932745189F00E90EAD /* Debug - Production */,
+				F88A6505273552B5004B12AB /* Release - Production */,
+				F8344197274518C700E90EAD /* Release - Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Debug - Staging";
 		};
 		F88A6506273552B5004B12AB /* Build configuration list for PBXNativeTarget "PokemonWorldUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F88A6507273552B5004B12AB /* Debug */,
-				F88A6508273552B5004B12AB /* Release */,
+				F88A6507273552B5004B12AB /* Debug - Staging */,
+				F83441942745189F00E90EAD /* Debug - Production */,
+				F88A6508273552B5004B12AB /* Release - Production */,
+				F8344198274518C700E90EAD /* Release - Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = "Debug - Staging";
 		};
 /* End XCConfigurationList section */
 

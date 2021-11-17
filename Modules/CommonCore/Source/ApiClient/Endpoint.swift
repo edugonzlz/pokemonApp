@@ -21,15 +21,15 @@ public protocol Endpoint {
 }
 
 public extension Endpoint {
-    public var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy {
+    var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy {
         return .iso8601
     }
 
-    public var keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy {
+    var keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy {
         return .convertFromSnakeCase
     }
 
-    public func makeRequest() throws -> URLRequest {
+    func makeRequest() throws -> URLRequest {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = host

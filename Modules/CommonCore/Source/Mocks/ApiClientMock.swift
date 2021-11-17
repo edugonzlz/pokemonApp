@@ -16,11 +16,10 @@ public class ApiClientMock: ApiClientProtocol {
         if let resultValue = resultValue as? T {
             return Just(resultValue)
                 .mapError { error -> Error in
-                    return error
                 }
                 .eraseToAnyPublisher()
         } else {
-            return Fail<T, Error>(error: TestError.Error1 as! Error).eraseToAnyPublisher()
+            return Fail<T, Error>(error: TestError.Error1 as Error).eraseToAnyPublisher()
         }
     }
 

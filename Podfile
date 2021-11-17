@@ -18,14 +18,14 @@ def dev_pods
 end
 
 target 'PokemonWorld' do
-  project 'PokemonWorld/PokemonWorld.xcodeproj', 'Debug (Staging)' => :debug, 'Debug (Production)' => :debug, 'Release (Staging)' => :release, 'Release (Production)' => :release
+  project 'PokemonWorld/PokemonWorld.xcodeproj', 'Debug - Staging' => :debug, 'Debug - Production' => :debug, 'Release - Staging' => :release, 'Release - Production' => :release
 
   dev_pods
 
 end
 
 target 'PokemonLand' do
-  project 'PokemonLand/PokemonLand.xcodeproj', 'Debug (Staging)' => :debug, 'Debug (Production)' => :debug, 'Release (Staging)' => :release, 'Release (Production)' => :release
+  project 'PokemonLand/PokemonLand.xcodeproj', 'Debug - Staging' => :debug, 'Debug - Production' => :debug, 'Release - Staging' => :release, 'Release - Production' => :release
 
   dev_pods
 
