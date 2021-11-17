@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
-  s.name             = 'CommonCore'
-  s.module_name      = 'CommonCore'
+  s.name             = 'CommonUI'
+  s.module_name      = 'CommonUI'
   s.version          = '1.0.0'
-  s.summary          = 'Framework for CommonCore'
+  s.summary          = 'Framework for CommonUI'
   s.homepage         = "https://github.com/edugonzlz"
   s.license          = 'Code is MIT'
   s.author           = { "Edu González" => "codilogico@gmail.com" }
@@ -13,5 +13,9 @@ Pod::Spec.new do |s|
   s.static_framework = true
 
   s.source_files = '**/*'
+
+  s.resource_bundles = {
+      'ResourcesBundle' => ['CommonUI/**/*.xib']
+    }
 
 end

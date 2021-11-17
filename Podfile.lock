@@ -1,22 +1,30 @@
 PODS:
   - CommonCore (1.0.0)
+  - CommonUI (1.0.0)
   - PokemonServices (1.0.0):
+    - CommonCore
+  - PokemonServices/PokemonTests (1.0.0):
     - CommonCore
 
 DEPENDENCIES:
   - CommonCore (from `Modules/CommonCore`)
+  - CommonUI (from `Modules/CommonUI`)
   - PokemonServices (from `Modules/PokemonServices`)
+  - PokemonServices/PokemonTests (from `Modules/PokemonServices`)
 
 EXTERNAL SOURCES:
   CommonCore:
     :path: Modules/CommonCore
+  CommonUI:
+    :path: Modules/CommonUI
   PokemonServices:
     :path: Modules/PokemonServices
 
 SPEC CHECKSUMS:
-  CommonCore: a2d3087feef2f2aeacde58388567a58b245708b5
-  PokemonServices: a5117b2ea60307275f97027509f79b592256161d
+  CommonCore: f347a819edcef848f47d975ac9610c87c2c5b226
+  CommonUI: 8f1d33c83958553186adb387cb09e94221241b11
+  PokemonServices: 41b991f75118b565b1f2df9c091a8bea83b2c9e3
 
-PODFILE CHECKSUM: 1302ee3eead2623e90c23dc060f2bdd4a85a2057
+PODFILE CHECKSUM: 14db67f3c85c375341cc5decae56120d45d44d24
 
 COCOAPODS: 1.11.2
