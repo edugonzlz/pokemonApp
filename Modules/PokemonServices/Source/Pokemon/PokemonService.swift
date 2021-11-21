@@ -12,12 +12,15 @@ public protocol PokemonServiceProtocol {
     func getPokemon(name: String) -> AnyPublisher<Pokemon, Error>
 }
 
-public class PokemonService: PokemonServiceProtocol {
+public class PokemonService<Cache: PokemonCacheProtocol>: PokemonServiceProtocol {
 
     private let apiClient: ApiClientProtocol
+    private let pokemonCache: Cache
 
-    public init(apiClient: ApiClientProtocol = ApiClient()) {
+    public init(apiClient: ApiClientProtocol = ApiClient(),
+                pokemonCache: Cache = PokemonCache() as! Cache) {
         self.apiClient = apiClient
+        self.pokemonCache = pokemonCache
     }
 }
 
@@ -44,15 +47,25 @@ public extension PokemonService {
     }
 
     func getPokemon(name: String, completion: @escaping (Result<Pokemon, Error>) -> Void) {
+        if let pokemon = pokemonCache.value(forKey: name) {
+            return completion(.success(pokemon))
+        }
+
         do {
             let urlRequest = try Endpoints.getPokemonByName(name).makeRequest()
-            apiClient.request(urlRequest: urlRequest,
-                              completion: completion)
+            apiClient.request(urlRequest: urlRequest) { (result: (Result<Pokemon, Error>)) in
+                switch result {
+                case .success(let data):
+                    self.pokemonCache.insert(data, forKey: data.name)
+                    completion(.success(data))
+                case .failure:
+                    completion(result)
+                }
+            }
         } catch {
             completion(.failure(error))
         }
     }
-
 }
 
 //MARK - Combine
@@ -76,9 +89,20 @@ public extension PokemonService {
     }
 
     func getPokemon(name: String) -> AnyPublisher<Pokemon, Error> {
+        if let pokemon = pokemonCache.value(forKey: name) {
+            return Just(pokemon)
+                .mapError { error -> Error in }
+                .eraseToAnyPublisher()
+        }
+
         do {
             let urlRequest = try Endpoints.getPokemonByName(name).makeRequest()
             return apiClient.request(urlRequest: urlRequest)
+                .map { (item: Pokemon) in
+                    self.pokemonCache.insert(item, forKey: item.name)
+                    return item
+                }.eraseToAnyPublisher()
+
         } catch {
             return Fail<Pokemon, Error>(error: error).eraseToAnyPublisher()
         }
