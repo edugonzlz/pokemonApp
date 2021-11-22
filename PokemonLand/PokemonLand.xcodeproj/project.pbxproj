@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1D32AB992242AF330C2F8978 /* Pods_PokemonLand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A5EC6AE70323DCCA8A1103 /* Pods_PokemonLand.framework */; };
+		F8367C84274BA28E00480FD1 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8367C83274BA28E00480FD1 /* ListView.swift */; };
+		F8367C87274BA3DA00480FD1 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8367C86274BA3D900480FD1 /* ListViewModel.swift */; };
+		F8367C89274BA8CA00480FD1 /* PokemonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8367C88274BA8CA00480FD1 /* PokemonRow.swift */; };
+		F8367C8B274BA9A400480FD1 /* PokemonCellVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8367C8A274BA9A400480FD1 /* PokemonCellVo.swift */; };
 		F88A65582735530A004B12AB /* PokemonLandApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88A65572735530A004B12AB /* PokemonLandApp.swift */; };
-		F88A655A2735530A004B12AB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88A65592735530A004B12AB /* ContentView.swift */; };
 		F88A655C2735530A004B12AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F88A655B2735530A004B12AB /* Assets.xcassets */; };
 		F88A655F2735530A004B12AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F88A655E2735530A004B12AB /* Preview Assets.xcassets */; };
 		F88A65692735530B004B12AB /* PokemonLandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88A65682735530B004B12AB /* PokemonLandTests.swift */; };
@@ -42,9 +45,12 @@
 		B33F00FDE7E22F8946E9DB3E /* Pods-PokemonLand.debug - production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonLand.debug - production.xcconfig"; path = "Target Support Files/Pods-PokemonLand/Pods-PokemonLand.debug - production.xcconfig"; sourceTree = "<group>"; };
 		C024AACD4219F0783AB751D2 /* Pods-PokemonLand.release - production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonLand.release - production.xcconfig"; path = "Target Support Files/Pods-PokemonLand/Pods-PokemonLand.release - production.xcconfig"; sourceTree = "<group>"; };
 		C255013CA415290378A5B603 /* Pods-PokemonLand.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonLand.release.xcconfig"; path = "Target Support Files/Pods-PokemonLand/Pods-PokemonLand.release.xcconfig"; sourceTree = "<group>"; };
+		F8367C83274BA28E00480FD1 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		F8367C86274BA3D900480FD1 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		F8367C88274BA8CA00480FD1 /* PokemonRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonRow.swift; sourceTree = "<group>"; };
+		F8367C8A274BA9A400480FD1 /* PokemonCellVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCellVo.swift; sourceTree = "<group>"; };
 		F88A65542735530A004B12AB /* PokemonLand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonLand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F88A65572735530A004B12AB /* PokemonLandApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonLandApp.swift; sourceTree = "<group>"; };
-		F88A65592735530A004B12AB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F88A655B2735530A004B12AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F88A655E2735530A004B12AB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F88A65642735530B004B12AB /* PokemonLandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonLandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +110,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F8367C82274BA21700480FD1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F88A655B2735530A004B12AB /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F8367C85274BA3CB00480FD1 /* ListScene */ = {
+			isa = PBXGroup;
+			children = (
+				F8367C88274BA8CA00480FD1 /* PokemonRow.swift */,
+				F8367C83274BA28E00480FD1 /* ListView.swift */,
+				F8367C86274BA3D900480FD1 /* ListViewModel.swift */,
+				F8367C8A274BA9A400480FD1 /* PokemonCellVo.swift */,
+			);
+			path = ListScene;
+			sourceTree = "<group>";
+		};
 		F88A654B2735530A004B12AB = {
 			isa = PBXGroup;
 			children = (
@@ -131,8 +156,8 @@
 			children = (
 				F8A77C7D27358C65006755BF /* Configurations */,
 				F88A65572735530A004B12AB /* PokemonLandApp.swift */,
-				F88A65592735530A004B12AB /* ContentView.swift */,
-				F88A655B2735530A004B12AB /* Assets.xcassets */,
+				F8367C85274BA3CB00480FD1 /* ListScene */,
+				F8367C82274BA21700480FD1 /* Resources */,
 				F88A655D2735530A004B12AB /* Preview Content */,
 			);
 			path = PokemonLand;
@@ -346,8 +371,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F88A655A2735530A004B12AB /* ContentView.swift in Sources */,
+				F8367C8B274BA9A400480FD1 /* PokemonCellVo.swift in Sources */,
 				F88A65582735530A004B12AB /* PokemonLandApp.swift in Sources */,
+				F8367C87274BA3DA00480FD1 /* ListViewModel.swift in Sources */,
+				F8367C89274BA8CA00480FD1 /* PokemonRow.swift in Sources */,
+				F8367C84274BA28E00480FD1 /* ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
