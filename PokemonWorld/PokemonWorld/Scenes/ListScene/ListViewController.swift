@@ -94,6 +94,7 @@ extension ListViewController: UICollectionViewDataSource {
 
         let item = tableDataVo.items[indexPath.row]
         cell.setup(with: ListPresenter.PokemonCellVo(name: item.name, imageURL: item.imageURL))
+        presenter.getPokemonDetail(name: item.name)
         return cell
     }
 }
@@ -110,6 +111,9 @@ extension ListViewController: UICollectionViewDelegate {
         }
 
         if indexPath.row == tableDataVo.items.count - 1 {
+            guard presenter?.isPaginable ?? false else {
+                return
+            }
             presenter.getData()
         }
     }

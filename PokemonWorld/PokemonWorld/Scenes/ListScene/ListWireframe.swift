@@ -13,7 +13,7 @@ class ListWireframe: ListWireframeType {
     func setup() -> UIViewController {
         let viewController = ListViewController()
         let presenter = ListPresenter(wireframe: self, viewController: viewController)
-        let interactor = ListInteractor(pokemonService: PokemonService())
+        let interactor = ListInteractor(pokemonService: PokemonService<PokemonCache>())
 
         viewController.presenter = presenter
         presenter.interactor = interactor

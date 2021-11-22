@@ -4,7 +4,9 @@ import PokemonServices
 
 protocol ListInteractorType: AnyObject {
     var output: ListInteractorOutput? { get set }
+    var isPaginable: Bool { get }
     func getData()
+    func getPokemonDetail(name: String)
 }
 
 protocol ListInteractorOutput: AnyObject {
@@ -20,13 +22,15 @@ class ListInteractor {
     weak var output: ListInteractorOutput?
     
     // MARK: - private
-    private let pokemonService: PokemonService
+    private let pokemonService: PokemonServiceProtocol
     private var cancellables = Set<AnyCancellable>()
 
     private var pokemonNameList = [String]()
     private var loadingData = false
 
-    init(pokemonService: PokemonService) {
+    var isPaginable: Bool = Constants.pageItems < Constants.totalApiPokemons
+
+    init(pokemonService: PokemonServiceProtocol) {
         self.pokemonService = pokemonService
     }
 }
@@ -36,11 +40,27 @@ extension ListInteractor: ListInteractorType {
         guard !loadingData else { return }
         self.getPokemons()
     }
+
+    func getPokemonDetail(name: String) {
+        pokemonService.getPokemon(name: name.lowercased())
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Get Pokemon details finished")
+                case .failure(let error):
+                    print("Error getting: \(name) - \(error)")
+                }
+            }, receiveValue: { data in
+                self.output?.updateItem(pokemon: data)
+            })
+            .store(in: &self.cancellables)
+    }
 }
 
 private extension ListInteractor {
     struct Constants {
-        static let pageItems: Int = 20
+        static let totalApiPokemons: Int = 1118
+        static let pageItems: Int = totalApiPokemons
     }
 
     func getPokemons() {
@@ -61,26 +81,12 @@ private extension ListInteractor {
                 let newNames = data.results.map { $0.name }
                 self.pokemonNameList.append(contentsOf: newNames)
                 self.output?.updateList(names: newNames)
-                self.getDetails(from: data)
             })
             .store(in: &self.cancellables)
     }
 
     func getDetails(from pokemonList: PokemonList) {
-        let publishers = pokemonList.results
-            .map { self.pokemonService.getPokemon(name: $0.name) }
-
-        Publishers.MergeMany(publishers)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    print("Get Pokemon details finished")
-                case .failure(_):
-                    break
-                }
-            }, receiveValue: { data in
-                self.output?.updateItem(pokemon: data)
-            })
-            .store(in: &self.cancellables)
+        pokemonList.results
+            .forEach { self.getPokemonDetail(name: $0.name)}
     }
 }

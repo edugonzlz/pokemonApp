@@ -14,7 +14,9 @@ extension ListPresenter {
 }
 
 protocol ListPresenterType {
+    var isPaginable: Bool { get }
     func getData()
+    func getPokemonDetail(name: String)
     func navigateTo(detail indexPath: IndexPath)
 }
 
@@ -32,13 +34,19 @@ class ListPresenter {
         }
     }
     private lazy var pokemons = Set<Pokemon>()
-    
+
+    // MARK: - Public
+    var isPaginable: Bool {
+        return interactor?.isPaginable ?? false
+    }
+
     // MARK: - Init
     init(wireframe: ListWireframeType,
          viewController: ListViewControllerType) {
         self.wireframe = wireframe
         self.viewController = viewController
     }
+    
 }
 
 // MARK: - ListPresenterType
@@ -47,7 +55,11 @@ extension ListPresenter: ListPresenterType {
         viewController?.showLoading()
         interactor?.getData()
     }
-    
+
+    func getPokemonDetail(name: String) {
+        interactor?.getPokemonDetail(name: name)
+    }
+
     func navigateTo(detail indexPath: IndexPath) {
         guard let cellVo = tableDataVo?.items[indexPath.row],
               let pokemon = pokemons
