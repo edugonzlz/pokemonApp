@@ -10,8 +10,9 @@
 		1D32AB992242AF330C2F8978 /* Pods_PokemonLand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A5EC6AE70323DCCA8A1103 /* Pods_PokemonLand.framework */; };
 		F8367C84274BA28E00480FD1 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8367C83274BA28E00480FD1 /* ListView.swift */; };
 		F8367C87274BA3DA00480FD1 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8367C86274BA3D900480FD1 /* ListViewModel.swift */; };
-		F8367C89274BA8CA00480FD1 /* PokemonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8367C88274BA8CA00480FD1 /* PokemonRow.swift */; };
+		F8367C89274BA8CA00480FD1 /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8367C88274BA8CA00480FD1 /* PokemonCell.swift */; };
 		F8367C8B274BA9A400480FD1 /* PokemonCellVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8367C8A274BA9A400480FD1 /* PokemonCellVo.swift */; };
+		F8367C8E274BB94900480FD1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F8367C8D274BB94900480FD1 /* Kingfisher */; };
 		F88A65582735530A004B12AB /* PokemonLandApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88A65572735530A004B12AB /* PokemonLandApp.swift */; };
 		F88A655C2735530A004B12AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F88A655B2735530A004B12AB /* Assets.xcassets */; };
 		F88A655F2735530A004B12AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F88A655E2735530A004B12AB /* Preview Assets.xcassets */; };
@@ -47,8 +48,9 @@
 		C255013CA415290378A5B603 /* Pods-PokemonLand.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonLand.release.xcconfig"; path = "Target Support Files/Pods-PokemonLand/Pods-PokemonLand.release.xcconfig"; sourceTree = "<group>"; };
 		F8367C83274BA28E00480FD1 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		F8367C86274BA3D900480FD1 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
-		F8367C88274BA8CA00480FD1 /* PokemonRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonRow.swift; sourceTree = "<group>"; };
+		F8367C88274BA8CA00480FD1 /* PokemonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
 		F8367C8A274BA9A400480FD1 /* PokemonCellVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCellVo.swift; sourceTree = "<group>"; };
+		F8367C8F274BED5200480FD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F88A65542735530A004B12AB /* PokemonLand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonLand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F88A65572735530A004B12AB /* PokemonLandApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonLandApp.swift; sourceTree = "<group>"; };
 		F88A655B2735530A004B12AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8367C8E274BB94900480FD1 /* Kingfisher in Frameworks */,
 				1D32AB992242AF330C2F8978 /* Pods_PokemonLand.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,10 +124,10 @@
 		F8367C85274BA3CB00480FD1 /* ListScene */ = {
 			isa = PBXGroup;
 			children = (
-				F8367C88274BA8CA00480FD1 /* PokemonRow.swift */,
+				F8367C88274BA8CA00480FD1 /* PokemonCell.swift */,
+				F8367C8A274BA9A400480FD1 /* PokemonCellVo.swift */,
 				F8367C83274BA28E00480FD1 /* ListView.swift */,
 				F8367C86274BA3D900480FD1 /* ListViewModel.swift */,
-				F8367C8A274BA9A400480FD1 /* PokemonCellVo.swift */,
 			);
 			path = ListScene;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 		F88A65562735530A004B12AB /* PokemonLand */ = {
 			isa = PBXGroup;
 			children = (
+				F8367C8F274BED5200480FD1 /* Info.plist */,
 				F8A77C7D27358C65006755BF /* Configurations */,
 				F88A65572735530A004B12AB /* PokemonLandApp.swift */,
 				F8367C85274BA3CB00480FD1 /* ListScene */,
@@ -215,6 +219,9 @@
 			dependencies = (
 			);
 			name = PokemonLand;
+			packageProductDependencies = (
+				F8367C8D274BB94900480FD1 /* Kingfisher */,
+			);
 			productName = PokemonLand;
 			productReference = F88A65542735530A004B12AB /* PokemonLand.app */;
 			productType = "com.apple.product-type.application";
@@ -287,6 +294,9 @@
 				Base,
 			);
 			mainGroup = F88A654B2735530A004B12AB;
+			packageReferences = (
+				F8367C8C274BB94900480FD1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = F88A65552735530A004B12AB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -374,7 +384,7 @@
 				F8367C8B274BA9A400480FD1 /* PokemonCellVo.swift in Sources */,
 				F88A65582735530A004B12AB /* PokemonLandApp.swift in Sources */,
 				F8367C87274BA3DA00480FD1 /* ListViewModel.swift in Sources */,
-				F8367C89274BA8CA00480FD1 /* PokemonRow.swift in Sources */,
+				F8367C89274BA8CA00480FD1 /* PokemonCell.swift in Sources */,
 				F8367C84274BA28E00480FD1 /* ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,6 +495,7 @@
 				DEVELOPMENT_TEAM = LS8HYFSC3B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PokemonLand/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -618,6 +629,7 @@
 				DEVELOPMENT_TEAM = LS8HYFSC3B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PokemonLand/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -812,6 +824,7 @@
 				DEVELOPMENT_TEAM = LS8HYFSC3B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PokemonLand/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -842,6 +855,7 @@
 				DEVELOPMENT_TEAM = LS8HYFSC3B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PokemonLand/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1004,6 +1018,25 @@
 			defaultConfigurationName = "Debug - Staging";
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F8367C8C274BB94900480FD1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F8367C8D274BB94900480FD1 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8367C8C274BB94900480FD1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F88A654C2735530A004B12AB /* Project object */;
 }
