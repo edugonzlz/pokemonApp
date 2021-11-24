@@ -16,7 +16,7 @@ class ListViewModel: ListViewModelProtocol {
 
     @Published var vo: ListVo = ListVo(items: [], totalItems: 0)
     var pokemons = [String: Pokemon]()
-    @Published var isLoading = true
+    @Published var isLoading = false
 
     private let service: PokemonServiceProtocol
     private var cancellables = Set<AnyCancellable>()
@@ -27,6 +27,8 @@ class ListViewModel: ListViewModelProtocol {
     }
 
     func getData() {
+        guard resources.isEmpty, !isLoading else { return }
+        isLoading = true
         let pagination = PaginationParameters(offset: vo.items.count,
                                               limit: Constants.apiPageItems)
         service.getPokemons(pagination: pagination)
@@ -41,9 +43,7 @@ class ListViewModel: ListViewModelProtocol {
             }, receiveValue: { data in
                 self.resources = data.results
                 self.vo.totalItems = data.results.count
-                if self.pokemons.isEmpty {
-                    self.getNextDetailsPage()
-                }
+                self.getNextDetailsPage()
             })
             .store(in: &self.cancellables)
     }
