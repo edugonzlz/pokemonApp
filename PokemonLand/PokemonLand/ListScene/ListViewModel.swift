@@ -4,82 +4,92 @@ import PokemonServices
 import SwiftUI
 
 protocol ListViewModelProtocol: ObservableObject {
-    var data: [ListViewModel.PokemonCellVo] { get }
+    var vo: [ListViewModel.PokemonCellVo] { get }
+    var pokemons: [String: Pokemon] { get }
+    var isLoading: Bool { get }
+
     func getData()
-    func getPokemonDetail(name: String)
+    func loadMoreRows(pokemonName: String)
 }
 
 class ListViewModel: ListViewModelProtocol {
-    
+
+    @Published var vo: [PokemonCellVo] = []
+    var pokemons = [String: Pokemon]()
+    @Published var isLoading = true
+
     private let service: PokemonServiceProtocol
     private var cancellables = Set<AnyCancellable>()
-    
+    private var resources = [PokemonResource]()
+
     init(service: PokemonServiceProtocol = PokemonService<PokemonCache>()) {
         self.service = service
     }
-    
-    @Published var data: [PokemonCellVo] = []
-    
+
     func getData() {
-        let pagination = PaginationParameters(offset: data.count,
+        let pagination = PaginationParameters(offset: vo.count,
                                               limit: Constants.pageItems)
         service.getPokemons(pagination: pagination)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
-                    print("Finish")
+                    break
                 case .failure(let error):
                     print(error)
                 }
-            }, receiveValue: { [weak self] data in
-                self?.present(data: data)
+            }, receiveValue: { data in
+                self.resources = data.results
+                if self.pokemons.isEmpty {
+                    self.getNextDetailsPage()
+                }
             })
             .store(in: &self.cancellables)
     }
-    
-    func getPokemonDetail(name: String) {
-        service.getPokemon(name: name.lowercased())
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    print("Error getting: \(name) - \(error)")
-                }
-            }, receiveValue: { [weak self] data in
-                if let vo = self?.getItemVo(name: data.name, imageURL: data.image) {
-                    self?.update(pokemonCellVo: vo)
-                }
-            })
-            .store(in: &self.cancellables)
+
+    func loadMoreRows(pokemonName: String) {
+        guard let index = vo.firstIndex(where: { pokemonName.lowercased() == $0.name.lowercased() }),
+              (index + 1) == vo.count, !isLoading else {
+                  return
+              }
+        getNextDetailsPage()
     }
 }
 
 // MARK: - Private
 private extension ListViewModel {
-    func present(data: PokemonList) {
-        data.results.forEach { [weak self] item in
-            self?.data.append(getItemVo(name: item.name, imageURL: nil))
-        }
-    }
-    
-    func getItemVo(name: String, imageURL: URL?) -> PokemonCellVo {
-        return PokemonCellVo(name: name.capitalized, imageURL: imageURL)
-    }
-    
-    func update(pokemonCellVo vo: PokemonCellVo) {
-        if let index = data.firstIndex(where: { $0.name == vo.name}),
-           data[index].imageURL == nil {
-            data[index].imageURL = vo.imageURL
-        }
-    }
-}
-
-private extension ListViewModel {
     struct Constants {
         static let totalApiPokemons: Int = 1118
         static let pageItems: Int = totalApiPokemons
+        static let listPageItems: Int = 20
+    }
+
+    func getItemVo(pokemon: Pokemon) -> PokemonCellVo {
+        return PokemonCellVo(name: pokemon.name.capitalized,
+                             imageURL: pokemon.image)
+    }
+
+    func getNextDetailsPage() {
+        var publishers = [AnyPublisher<Pokemon, Error>]()
+        for index in pokemons.count..<(pokemons.count + Constants.listPageItems) {
+            publishers.append(service.getPokemon(name: resources[index].name))
+        }
+
+        publishers
+            .publisher
+            .flatMap { $0 }
+            .collect()
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                self.isLoading = false
+            } receiveValue: { data in
+                let orderedData = data.sorted(by: { $0.order < $1.order })
+                orderedData.forEach { item in
+                    self.pokemons[item.name] = item
+                    self.vo.append(self.getItemVo(pokemon: item))
+                }
+            }
+            .store(in: &self.cancellables)
+
     }
 }

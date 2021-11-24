@@ -4,7 +4,9 @@ import SwiftUI
 struct PokemonLandApp: App {
     var body: some Scene {
         WindowGroup {
-            ListView(viewModel: ListViewModel())
+            NavigationView {
+                ListView(viewModel: ListViewModel())
+            }
         }
     }
 }

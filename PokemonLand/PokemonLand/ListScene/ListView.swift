@@ -1,31 +1,38 @@
 import SwiftUI
 
 struct ListView: View {
-
+    
     @ObservedObject var viewModel: ListViewModel
-
+    
     var body: some View {
-        NavigationView {
-            GeometryReader { proxy in
-                ScrollView {
-                    LazyVGrid(columns: config(viewWidth: proxy.size.width),
-                              spacing: Constants.margin) {
-                        ForEach(viewModel.data, id: \.self) { item in
-                            PokemonCell(vo: item)
-                                .onAppear {
-                                    self.viewModel.getPokemonDetail(name: item.name)
-                                }
+        GeometryReader { proxy in
+            ScrollView {
+                LazyVGrid(columns: config(viewWidth: proxy.size.width),
+                          spacing: Constants.margin) {
+                    
+                    ForEach(viewModel.vo) { item in
+                        NavigationLink {
+                            if let pokemon = viewModel.pokemons[item.name.lowercased()] {
+                                DetailView(viewModel: DetailViewModel(data: pokemon)) }
                         }
-                    }.onAppear {
-                        self.viewModel.getData()
-                    }.padding(EdgeInsets(top: 0, leading: Constants.margin,
-                                         bottom: 0, trailing: Constants.margin))
+                    label: {
+                        PokemonCell(vo: item)
+                            .onAppear {
+                                self.viewModel.loadMoreRows(pokemonName: item.name)
+                            }}
+                    }
+                    
+                }.onAppear {
+                    self.viewModel.getData()
+                }.padding(EdgeInsets(top: 0, leading: Constants.margin,
+                                     bottom: 0, trailing: Constants.margin))
+
+                if viewModel.isLoading {
+                    ProgressView()
                 }
-                .navigationBarTitle("Pokemon Land (\(viewModel.data.count))")
-
             }
+            .navigationBarTitle("Pokemon Land (\(viewModel.vo.count))")
         }
-
     }
 }
 
@@ -37,7 +44,7 @@ private extension ListView {
             return (viewWidth - margin * 3)/2
         }
     }
-
+    
     func config(viewWidth: CGFloat) -> [GridItem] {
         return [GridItem(.adaptive(minimum: Constants.cellWidth(viewWidth: viewWidth)))]
     }

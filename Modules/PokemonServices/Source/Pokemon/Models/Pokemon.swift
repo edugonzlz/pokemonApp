@@ -7,7 +7,7 @@ extension Pokemon: Hashable {
 public struct Pokemon: Decodable {
     public let id: Int
     public let name: String
-    public let order: Int?
+    public let order: Int
     public let weight: Int?
     public let height: Int?
     public let sprites: PokemonSprites?
@@ -29,6 +29,15 @@ public struct Pokemon: Decodable {
             return nil
         }
         return URL(string: image)
+    }
+
+    public init(id: Int, name: String, order: Int, weight: Int?, height: Int?, sprites: Pokemon.PokemonSprites?) {
+        self.id = id
+        self.name = name
+        self.order = order
+        self.weight = weight
+        self.height = height
+        self.sprites = sprites
     }
 }
 
