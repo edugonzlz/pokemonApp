@@ -10,7 +10,7 @@ struct ListView: View {
                 LazyVGrid(columns: config(viewWidth: proxy.size.width),
                           spacing: Constants.margin) {
                     
-                    ForEach(viewModel.vo) { item in
+                    ForEach(viewModel.vo.items) { item in
                         NavigationLink {
                             if let pokemon = viewModel.pokemons[item.name.lowercased()] {
                                 DetailView(viewModel: DetailViewModel(data: pokemon)) }
@@ -26,12 +26,14 @@ struct ListView: View {
                     self.viewModel.getData()
                 }.padding(EdgeInsets(top: 0, leading: Constants.margin,
                                      bottom: 0, trailing: Constants.margin))
-
+                
                 if viewModel.isLoading {
+                    Spacer(minLength: 20)
                     ProgressView()
                 }
             }
-            .navigationBarTitle("Pokemon Land (\(viewModel.vo.count))")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitle("Pokemon Land (\(viewModel.vo.items.count) - \(viewModel.vo.totalItems))")
         }
     }
 }

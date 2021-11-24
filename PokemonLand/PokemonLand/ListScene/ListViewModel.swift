@@ -4,7 +4,7 @@ import PokemonServices
 import SwiftUI
 
 protocol ListViewModelProtocol: ObservableObject {
-    var vo: [ListViewModel.PokemonCellVo] { get }
+    var vo: ListViewModel.ListVo { get }
     var pokemons: [String: Pokemon] { get }
     var isLoading: Bool { get }
 
@@ -14,7 +14,7 @@ protocol ListViewModelProtocol: ObservableObject {
 
 class ListViewModel: ListViewModelProtocol {
 
-    @Published var vo: [PokemonCellVo] = []
+    @Published var vo: ListVo = ListVo(items: [], totalItems: 0)
     var pokemons = [String: Pokemon]()
     @Published var isLoading = true
 
@@ -27,8 +27,8 @@ class ListViewModel: ListViewModelProtocol {
     }
 
     func getData() {
-        let pagination = PaginationParameters(offset: vo.count,
-                                              limit: Constants.pageItems)
+        let pagination = PaginationParameters(offset: vo.items.count,
+                                              limit: Constants.apiPageItems)
         service.getPokemons(pagination: pagination)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
@@ -40,6 +40,7 @@ class ListViewModel: ListViewModelProtocol {
                 }
             }, receiveValue: { data in
                 self.resources = data.results
+                self.vo.totalItems = data.results.count
                 if self.pokemons.isEmpty {
                     self.getNextDetailsPage()
                 }
@@ -48,8 +49,8 @@ class ListViewModel: ListViewModelProtocol {
     }
 
     func loadMoreRows(pokemonName: String) {
-        guard let index = vo.firstIndex(where: { pokemonName.lowercased() == $0.name.lowercased() }),
-              (index + 1) == vo.count, !isLoading else {
+        guard let index = vo.items.firstIndex(where: { pokemonName.lowercased() == $0.name.lowercased() }),
+              (index + 1) == vo.items.count, !isLoading else {
                   return
               }
         getNextDetailsPage()
@@ -59,8 +60,8 @@ class ListViewModel: ListViewModelProtocol {
 // MARK: - Private
 private extension ListViewModel {
     struct Constants {
-        static let totalApiPokemons: Int = 1118
-        static let pageItems: Int = totalApiPokemons
+        static let apiTotalItems: Int = 1118
+        static let apiPageItems: Int = apiTotalItems
         static let listPageItems: Int = 20
     }
 
@@ -70,6 +71,7 @@ private extension ListViewModel {
     }
 
     func getNextDetailsPage() {
+        isLoading = true
         var publishers = [AnyPublisher<Pokemon, Error>]()
         for index in pokemons.count..<(pokemons.count + Constants.listPageItems) {
             publishers.append(service.getPokemon(name: resources[index].name))
@@ -83,10 +85,10 @@ private extension ListViewModel {
             .sink { completion in
                 self.isLoading = false
             } receiveValue: { data in
-                let orderedData = data.sorted(by: { $0.order < $1.order })
+                let orderedData = data.sorted(by: { $0.id < $1.id })
                 orderedData.forEach { item in
                     self.pokemons[item.name] = item
-                    self.vo.append(self.getItemVo(pokemon: item))
+                    self.vo.items.append(self.getItemVo(pokemon: item))
                 }
             }
             .store(in: &self.cancellables)

@@ -2,14 +2,14 @@ import Foundation
 import Combine
 
 extension ListViewModel {
-    class PokemonCellVo: ObservableObject {
+    struct ListVo {
+        var items: [PokemonCellVo]
+        var totalItems: Int
+    }
+
+    struct PokemonCellVo {
         let name: String
-        @Published var imageURL: URL?
-        
-        init(name: String, imageURL: URL?) {
-            self.name = name
-            self.imageURL = imageURL
-        }
+        let imageURL: URL?
     }
 }
 

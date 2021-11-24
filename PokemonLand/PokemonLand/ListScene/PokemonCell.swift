@@ -3,7 +3,7 @@ import Kingfisher
 
 struct PokemonCell: View {
     
-    @ObservedObject var vo: ListViewModel.PokemonCellVo
+    var vo: ListViewModel.PokemonCellVo
     
     var body: some View {
         VStack {
@@ -18,7 +18,8 @@ struct PokemonCell: View {
                 .font(Font.title)
                 .foregroundColor(.black)
                 .multilineTextAlignment(.center)
-                .padding(EdgeInsets(top: Constants.margin, leading: 0, bottom: Constants.margin, trailing: 0))
+                .padding(EdgeInsets(top: Constants.margin, leading: 0,
+                                    bottom: Constants.margin, trailing: 0))
         }
         .background(.red)
         .cornerRadius(10)
@@ -28,14 +29,5 @@ struct PokemonCell: View {
 private extension PokemonCell {
     struct Constants {
         static let margin: CGFloat = 10
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            PokemonCell(vo: ListViewModel.PokemonCellVo(name: "lalala", imageURL: URL(string: "https://purepng.com/public/uploads/large/purepng.com-pokemonpokemonpocket-monsterspokemon-franchisefictional-speciesone-pokemonmany-pokemonone-pikachu-1701527784812pkckd.png")))
-            PokemonCell(vo: ListViewModel.PokemonCellVo(name: "lalala", imageURL: URL(string: "https://purepng.com/public/uploads/large/purepng.com-pokemonpokemonpocket-monsterspokemon-franchisefictional-speciesone-pokemonmany-pokemonone-pikachu-1701527784812pkckd.png")))
-        }
     }
 }

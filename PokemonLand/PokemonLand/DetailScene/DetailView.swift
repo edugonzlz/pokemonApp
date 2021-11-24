@@ -12,13 +12,15 @@ struct DetailView: View {
                 KFImage(viewModel.vo.imageUrl)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .frame(height: 300)
+                    .shadow(color: .cyan, radius: 20)
                 Divider()
                 Spacer()
             }
         }
         .background(.red)
-        .navigationBarTitleDisplayMode(.inline)
         .navigationBarTitle(viewModel.vo.name)
+        .navigationBarTitleDisplayMode(.large)
     }
 }
 
@@ -27,5 +29,3 @@ struct DetailView_Previews: PreviewProvider {
         DetailView(viewModel: DetailViewModel(data: pokemonMock))
     }
 }
-
-let pokemonMock = Pokemon(id: 0, name: "test", order: 0, weight: nil, height: nil, sprites: nil)
