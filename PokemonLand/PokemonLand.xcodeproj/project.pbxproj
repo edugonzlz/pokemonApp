@@ -16,6 +16,7 @@
 		F8367C92274D3B8800480FD1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8367C91274D3B8800480FD1 /* DetailView.swift */; };
 		F8367C94274D3BF200480FD1 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8367C93274D3BF200480FD1 /* DetailViewModel.swift */; };
 		F85AC61A274E84EF00BF930F /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85AC619274E84EF00BF930F /* Mocks.swift */; };
+		F85AC61E274F8E6900BF930F /* View+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85AC61D274F8E6900BF930F /* View+extensions.swift */; };
 		F88A65582735530A004B12AB /* PokemonLandApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88A65572735530A004B12AB /* PokemonLandApp.swift */; };
 		F88A655C2735530A004B12AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F88A655B2735530A004B12AB /* Assets.xcassets */; };
 		F88A655F2735530A004B12AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F88A655E2735530A004B12AB /* Preview Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		F8367C91274D3B8800480FD1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		F8367C93274D3BF200480FD1 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		F85AC619274E84EF00BF930F /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
+		F85AC61D274F8E6900BF930F /* View+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+extensions.swift"; sourceTree = "<group>"; };
 		F88A65542735530A004B12AB /* PokemonLand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonLand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F88A65572735530A004B12AB /* PokemonLandApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonLandApp.swift; sourceTree = "<group>"; };
 		F88A655B2735530A004B12AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,6 +158,31 @@
 			path = DataMocks;
 			sourceTree = "<group>";
 		};
+		F85AC61B274F8E4E00BF930F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F88A65572735530A004B12AB /* PokemonLandApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F85AC61C274F8E5E00BF930F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F85AC61D274F8E6900BF930F /* View+extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F85AC61F274F8E8A00BF930F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F8367C85274BA3CB00480FD1 /* ListScene */,
+				F8367C90274D3B7400480FD1 /* DetailScene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 		F88A654B2735530A004B12AB = {
 			isa = PBXGroup;
 			children = (
@@ -181,12 +208,12 @@
 		F88A65562735530A004B12AB /* PokemonLand */ = {
 			isa = PBXGroup;
 			children = (
-				F85AC618274E84E200BF930F /* DataMocks */,
 				F8A77C7D27358C65006755BF /* Configurations */,
-				F88A65572735530A004B12AB /* PokemonLandApp.swift */,
-				F8367C85274BA3CB00480FD1 /* ListScene */,
-				F8367C90274D3B7400480FD1 /* DetailScene */,
+				F85AC61B274F8E4E00BF930F /* App */,
+				F85AC61F274F8E8A00BF930F /* Scenes */,
+				F85AC61C274F8E5E00BF930F /* Extensions */,
 				F8367C82274BA21700480FD1 /* Resources */,
+				F85AC618274E84E200BF930F /* DataMocks */,
 				F88A655D2735530A004B12AB /* Preview Content */,
 			);
 			path = PokemonLand;
@@ -410,6 +437,7 @@
 				F8367C92274D3B8800480FD1 /* DetailView.swift in Sources */,
 				F8367C94274D3BF200480FD1 /* DetailViewModel.swift in Sources */,
 				F85AC61A274E84EF00BF930F /* Mocks.swift in Sources */,
+				F85AC61E274F8E6900BF930F /* View+extensions.swift in Sources */,
 				F88A65582735530A004B12AB /* PokemonLandApp.swift in Sources */,
 				F8367C87274BA3DA00480FD1 /* ListViewModel.swift in Sources */,
 				F8367C89274BA8CA00480FD1 /* PokemonCell.swift in Sources */,

@@ -7,6 +7,7 @@ struct PokemonLandApp: App {
             NavigationView {
                 ListView(viewModel: ListViewModel())
             }
+            .configureNavigationForDevices()
         }
     }
 }
