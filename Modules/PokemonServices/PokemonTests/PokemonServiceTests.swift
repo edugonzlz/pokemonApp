@@ -3,9 +3,10 @@ import Combine
 @testable import PokemonServices
 @testable import CommonCore
 
-class ApiClientTests: XCTestCase {
+class PokemonServiceTests: XCTestCase {
 
     var sut: PokemonService<PokemonCacheMock>!
+
     var apiClientMock: ApiClientMock!
     var pokemonCacheMock: PokemonCacheMock!
     private var cancellables: Set<AnyCancellable>!
