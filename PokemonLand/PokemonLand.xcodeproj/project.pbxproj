@@ -20,6 +20,7 @@
 		F88A65582735530A004B12AB /* PokemonLandApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88A65572735530A004B12AB /* PokemonLandApp.swift */; };
 		F88A655C2735530A004B12AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F88A655B2735530A004B12AB /* Assets.xcassets */; };
 		F88A655F2735530A004B12AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F88A655E2735530A004B12AB /* Preview Assets.xcassets */; };
+		F8D0A4FE2912AF45006AA418 /* PokemonServices in Frameworks */ = {isa = PBXBuildFile; productRef = F8D0A4FD2912AF45006AA418 /* PokemonServices */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +55,10 @@
 		F88A655B2735530A004B12AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F88A655E2735530A004B12AB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F88A65642735530B004B12AB /* PokemonLandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonLandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F89B7C6D2912982900E5B13D /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Modules/PokemonServices/Package.swift; sourceTree = "<group>"; };
 		F8A77C7F27358CF1006755BF /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		F8A77C8027358CFE006755BF /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		F8D0A4F52912ABF1006AA418 /* PokemonServices */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PokemonServices; path = ../Modules/PokemonServices; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +68,7 @@
 			files = (
 				F8367C8E274BB94900480FD1 /* Kingfisher in Frameworks */,
 				1D32AB992242AF330C2F8978 /* Pods_PokemonLand.framework in Frameworks */,
+				F8D0A4FE2912AF45006AA418 /* PokemonServices in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +99,7 @@
 		61BF06CC58E0E0A16E945329 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F89B7C6D2912982900E5B13D /* Package.swift */,
 				A1A5EC6AE70323DCCA8A1103 /* Pods_PokemonLand.framework */,
 			);
 			name = Frameworks;
@@ -165,6 +170,7 @@
 		F88A654B2735530A004B12AB = {
 			isa = PBXGroup;
 			children = (
+				F89B7C6E291298E900E5B13D /* Packages */,
 				F88A65562735530A004B12AB /* PokemonLand */,
 				F88A65672735530B004B12AB /* PokemonLandTests */,
 				F88A65552735530A004B12AB /* Products */,
@@ -211,6 +217,14 @@
 			path = PokemonLandTests;
 			sourceTree = "<group>";
 		};
+		F89B7C6E291298E900E5B13D /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				F8D0A4F52912ABF1006AA418 /* PokemonServices */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		F8A77C7D27358C65006755BF /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,7 +245,6 @@
 				F88A65502735530A004B12AB /* Sources */,
 				F88A65512735530A004B12AB /* Frameworks */,
 				F88A65522735530A004B12AB /* Resources */,
-				D6324D76D82C45ADE70C7975 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -240,6 +253,7 @@
 			name = PokemonLand;
 			packageProductDependencies = (
 				F8367C8D274BB94900480FD1 /* Kingfisher */,
+				F8D0A4FD2912AF45006AA418 /* PokemonServices */,
 			);
 			productName = PokemonLand;
 			productReference = F88A65542735530A004B12AB /* PokemonLand.app */;
@@ -344,23 +358,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D6324D76D82C45ADE70C7975 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PokemonLand/Pods-PokemonLand-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PokemonLand/Pods-PokemonLand-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PokemonLand/Pods-PokemonLand-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -910,6 +907,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F8367C8C274BB94900480FD1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		F8D0A4FD2912AF45006AA418 /* PokemonServices */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PokemonServices;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

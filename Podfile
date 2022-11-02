@@ -8,27 +8,12 @@ platform :ios, '13.0'
 workspace 'App'
 source 'https://github.com/CocoaPods/Specs.git'
 
-def dev_pods
-  pod 'UserServices', :path => 'Modules/UserServices', :testspecs => ['UserTests']
-
-  pod 'PokemonServices', :path => 'Modules/PokemonServices', :testspecs => ['PokemonTests']
-
-  pod 'CommonCore', :path => 'Modules/CommonCore'
-
-  pod 'CommonUI', :path => 'Modules/CommonUI'
-
-end
-
 target 'PokemonWorld' do
   project 'PokemonWorld/PokemonWorld.xcodeproj', 'Debug - Staging' => :debug, 'Debug - Production' => :debug, 'Release - Staging' => :release, 'Release - Production' => :release
-
-  dev_pods
 
 end
 
 target 'PokemonLand' do
   project 'PokemonLand/PokemonLand.xcodeproj', 'Debug - Staging' => :debug, 'Debug - Production' => :debug, 'Release - Staging' => :release, 'Release - Production' => :release
-
-  dev_pods
 
 end

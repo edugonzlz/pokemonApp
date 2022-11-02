@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
     ]
   end
 
-  s.source_files = 'Source/**/*'
+  s.source_files = 'Sources/**/*'
 
   s.dependency 'CommonCore'
 

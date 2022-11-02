@@ -1,4 +1,5 @@
 import Combine
+import Foundation
 
 public protocol ApiClientProtocol {
     func request<T: Decodable>(urlRequest: URLRequest, completion: @escaping (_ result: Result<T, Error>) -> Void)

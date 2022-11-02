@@ -81,6 +81,7 @@
 		F8B6C0CD273942F400191204 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		F8B6C0CE273942F400191204 /* ListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
 		F8CA643B273AF75A00E4DDFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F8D0A4EC2912A93E006AA418 /* PokemonServices */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PokemonServices; path = ../Modules/PokemonServices; sourceTree = "<group>"; };
 		F8D1233E2739590E007FC2D7 /* UIView+loadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+loadingView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,6 +199,7 @@
 		F88A64CD273552B4004B12AB = {
 			isa = PBXGroup;
 			children = (
+				F8D0A4EB2912A93E006AA418 /* Packages */,
 				F88A64D8273552B4004B12AB /* PokemonWorld */,
 				F88A64EF273552B5004B12AB /* PokemonWorldTests */,
 				F88A64D7273552B4004B12AB /* Products */,
@@ -266,6 +268,14 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		F8D0A4EB2912A93E006AA418 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				F8D0A4EC2912A93E006AA418 /* PokemonServices */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -277,7 +287,6 @@
 				F88A64D2273552B4004B12AB /* Sources */,
 				F88A64D3273552B4004B12AB /* Frameworks */,
 				F88A64D4273552B4004B12AB /* Resources */,
-				3FD018ED1F6699C1D9F6A724 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -376,23 +385,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3FD018ED1F6699C1D9F6A724 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PokemonWorld/Pods-PokemonWorld-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PokemonWorld/Pods-PokemonWorld-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PokemonWorld/Pods-PokemonWorld-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C277F79AC512F914285DC85F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

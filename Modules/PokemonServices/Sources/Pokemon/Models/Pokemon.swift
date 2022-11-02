@@ -1,3 +1,5 @@
+import Foundation
+
 extension Pokemon: Hashable {
     public static func == (lhs: Pokemon, rhs: Pokemon) -> Bool {
         return lhs.id == rhs.id
