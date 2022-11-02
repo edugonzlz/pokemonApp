@@ -38,16 +38,6 @@
                ReferencedContainer = "container:PokemonLand.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F88A656D2735530B004B12AB"
-               BuildableName = "PokemonLandUITests.xctest"
-               BlueprintName = "PokemonLandUITests"
-               ReferencedContainer = "container:PokemonLand.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

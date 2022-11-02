@@ -87,7 +87,7 @@ public extension ApiClient {
 
 }
 
-//MARK - Combine
+//MARK - Async
 @available(iOS 15.0.0, *)
 public extension ApiClient {
     func request<T: Decodable>(urlRequest: URLRequest) async throws -> T {

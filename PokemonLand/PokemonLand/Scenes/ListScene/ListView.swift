@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct ListView: View {
+struct ListView<M: ListViewModelProtocol>: View {
     
-    @ObservedObject var viewModel: ListViewModel
+    @ObservedObject var viewModel: M
     
     var body: some View {
         GeometryReader { proxy in
@@ -40,8 +40,12 @@ struct ListView: View {
 
 private extension ListView {
     struct Constants {
-        static let margin: CGFloat = 10
-        static let cellHeight: CGFloat = 250
+        static var margin: CGFloat {
+            10
+        }
+        static var cellHeight: CGFloat {
+            250
+        }
         static func cellWidth(viewWidth: CGFloat) -> CGFloat {
             return (viewWidth - margin * 3)/2
         }

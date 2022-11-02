@@ -60,10 +60,5 @@ class CodableSalvable: CodableSalvableProtocol {
         }
         userDefaults.removePersistentDomain(forName: domain)
         userDefaults.synchronize()
-
-//        let dictionary = userDefaults.dictionaryRepresentation()
-//        dictionary.keys.forEach { key in
-//            defaults.removeObject(forKey: key)
-//        }
     }
 }
