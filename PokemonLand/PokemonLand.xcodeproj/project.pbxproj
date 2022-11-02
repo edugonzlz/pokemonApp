@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D32AB992242AF330C2F8978 /* Pods_PokemonLand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A5EC6AE70323DCCA8A1103 /* Pods_PokemonLand.framework */; };
 		F8367C84274BA28E00480FD1 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8367C83274BA28E00480FD1 /* ListView.swift */; };
 		F8367C87274BA3DA00480FD1 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8367C86274BA3D900480FD1 /* ListViewModel.swift */; };
 		F8367C89274BA8CA00480FD1 /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8367C88274BA8CA00480FD1 /* PokemonCell.swift */; };
@@ -34,13 +33,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		20868280E47C42F29C501C3A /* Pods-PokemonLand.release - staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonLand.release - staging.xcconfig"; path = "Target Support Files/Pods-PokemonLand/Pods-PokemonLand.release - staging.xcconfig"; sourceTree = "<group>"; };
-		33CB44AEAB03343BBCB0F1B1 /* Pods-PokemonLand.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonLand.debug.xcconfig"; path = "Target Support Files/Pods-PokemonLand/Pods-PokemonLand.debug.xcconfig"; sourceTree = "<group>"; };
-		A1A5EC6AE70323DCCA8A1103 /* Pods_PokemonLand.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonLand.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A23570AF8F775188FF35E217 /* Pods-PokemonLand.debug - staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonLand.debug - staging.xcconfig"; path = "Target Support Files/Pods-PokemonLand/Pods-PokemonLand.debug - staging.xcconfig"; sourceTree = "<group>"; };
-		B33F00FDE7E22F8946E9DB3E /* Pods-PokemonLand.debug - production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonLand.debug - production.xcconfig"; path = "Target Support Files/Pods-PokemonLand/Pods-PokemonLand.debug - production.xcconfig"; sourceTree = "<group>"; };
-		C024AACD4219F0783AB751D2 /* Pods-PokemonLand.release - production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonLand.release - production.xcconfig"; path = "Target Support Files/Pods-PokemonLand/Pods-PokemonLand.release - production.xcconfig"; sourceTree = "<group>"; };
-		C255013CA415290378A5B603 /* Pods-PokemonLand.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonLand.release.xcconfig"; path = "Target Support Files/Pods-PokemonLand/Pods-PokemonLand.release.xcconfig"; sourceTree = "<group>"; };
 		F8367C83274BA28E00480FD1 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		F8367C86274BA3D900480FD1 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		F8367C88274BA8CA00480FD1 /* PokemonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
@@ -67,7 +59,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8367C8E274BB94900480FD1 /* Kingfisher in Frameworks */,
-				1D32AB992242AF330C2F8978 /* Pods_PokemonLand.framework in Frameworks */,
 				F8D0A4FE2912AF45006AA418 /* PokemonServices in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,25 +73,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		38DA33DD0E111C97378DB851 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				33CB44AEAB03343BBCB0F1B1 /* Pods-PokemonLand.debug.xcconfig */,
-				C255013CA415290378A5B603 /* Pods-PokemonLand.release.xcconfig */,
-				A23570AF8F775188FF35E217 /* Pods-PokemonLand.debug - staging.xcconfig */,
-				B33F00FDE7E22F8946E9DB3E /* Pods-PokemonLand.debug - production.xcconfig */,
-				20868280E47C42F29C501C3A /* Pods-PokemonLand.release - staging.xcconfig */,
-				C024AACD4219F0783AB751D2 /* Pods-PokemonLand.release - production.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
 		61BF06CC58E0E0A16E945329 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				F89B7C6D2912982900E5B13D /* Package.swift */,
-				A1A5EC6AE70323DCCA8A1103 /* Pods_PokemonLand.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -174,7 +150,6 @@
 				F88A65562735530A004B12AB /* PokemonLand */,
 				F88A65672735530B004B12AB /* PokemonLandTests */,
 				F88A65552735530A004B12AB /* Products */,
-				38DA33DD0E111C97378DB851 /* Pods */,
 				61BF06CC58E0E0A16E945329 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -241,7 +216,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F88A65782735530B004B12AB /* Build configuration list for PBXNativeTarget "PokemonLand" */;
 			buildPhases = (
-				BC8F252AD76A3A07284C4A6D /* [CP] Check Pods Manifest.lock */,
 				F88A65502735530A004B12AB /* Sources */,
 				F88A65512735530A004B12AB /* Frameworks */,
 				F88A65522735530A004B12AB /* Resources */,
@@ -306,7 +280,7 @@
 			);
 			mainGroup = F88A654B2735530A004B12AB;
 			packageReferences = (
-				F8367C8C274BB94900480FD1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				F8367C8C274BB94900480FD1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
 			);
 			productRefGroup = F88A65552735530A004B12AB /* Products */;
 			projectDirPath = "";
@@ -336,31 +310,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		BC8F252AD76A3A07284C4A6D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PokemonLand-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F88A65502735530A004B12AB /* Sources */ = {
@@ -892,7 +841,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F8367C8C274BB94900480FD1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		F8367C8C274BB94900480FD1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -905,7 +854,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		F8367C8D274BB94900480FD1 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F8367C8C274BB94900480FD1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = F8367C8C274BB94900480FD1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
 			productName = Kingfisher;
 		};
 		F8D0A4FD2912AF45006AA418 /* PokemonServices */ = {
