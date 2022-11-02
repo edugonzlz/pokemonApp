@@ -20,6 +20,7 @@
 		F88A655C2735530A004B12AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F88A655B2735530A004B12AB /* Assets.xcassets */; };
 		F88A655F2735530A004B12AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F88A655E2735530A004B12AB /* Preview Assets.xcassets */; };
 		F8D0A4FE2912AF45006AA418 /* PokemonServices in Frameworks */ = {isa = PBXBuildFile; productRef = F8D0A4FD2912AF45006AA418 /* PokemonServices */; };
+		F8D0A50B2912B662006AA418 /* Userservice in Frameworks */ = {isa = PBXBuildFile; productRef = F8D0A50A2912B662006AA418 /* Userservice */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		F8A77C7F27358CF1006755BF /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		F8A77C8027358CFE006755BF /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		F8D0A4F52912ABF1006AA418 /* PokemonServices */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PokemonServices; path = ../Modules/PokemonServices; sourceTree = "<group>"; };
+		F8D0A5092912B651006AA418 /* Userservice */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Userservice; path = ../Modules/Userservice; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8367C8E274BB94900480FD1 /* Kingfisher in Frameworks */,
+				F8D0A50B2912B662006AA418 /* Userservice in Frameworks */,
 				F8D0A4FE2912AF45006AA418 /* PokemonServices in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,6 +198,7 @@
 		F89B7C6E291298E900E5B13D /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				F8D0A5092912B651006AA418 /* Userservice */,
 				F8D0A4F52912ABF1006AA418 /* PokemonServices */,
 			);
 			name = Packages;
@@ -228,6 +232,7 @@
 			packageProductDependencies = (
 				F8367C8D274BB94900480FD1 /* Kingfisher */,
 				F8D0A4FD2912AF45006AA418 /* PokemonServices */,
+				F8D0A50A2912B662006AA418 /* Userservice */,
 			);
 			productName = PokemonLand;
 			productReference = F88A65542735530A004B12AB /* PokemonLand.app */;
@@ -280,7 +285,7 @@
 			);
 			mainGroup = F88A654B2735530A004B12AB;
 			packageReferences = (
-				F8367C8C274BB94900480FD1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
+				F8367C8C274BB94900480FD1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = F88A65552735530A004B12AB /* Products */;
 			projectDirPath = "";
@@ -841,7 +846,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F8367C8C274BB94900480FD1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
+		F8367C8C274BB94900480FD1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -854,12 +859,16 @@
 /* Begin XCSwiftPackageProductDependency section */
 		F8367C8D274BB94900480FD1 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F8367C8C274BB94900480FD1 /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
+			package = F8367C8C274BB94900480FD1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 		F8D0A4FD2912AF45006AA418 /* PokemonServices */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PokemonServices;
+		};
+		F8D0A50A2912B662006AA418 /* Userservice */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Userservice;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

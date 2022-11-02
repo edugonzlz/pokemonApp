@@ -25,13 +25,11 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "PokemonServices",
-            dependencies: ["CommonCore"],
-            path: "Sources"
-        )
-        //     ,
-        // .testTarget(
-        //     name: "PokemonTests",
-        //     dependencies: ["PokemonServices"]
-        // ),
+            dependencies: ["CommonCore"]
+        ),
+         .testTarget(
+             name: "PokemonServicesTests",
+             dependencies: ["PokemonServices"]
+         ),
     ]
 )
