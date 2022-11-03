@@ -1,6 +1,7 @@
 import Combine
 import Foundation
 import PokemonServices
+import Userservices
 import SwiftUI
 
 protocol ListViewModelProtocol: ObservableObject {
@@ -19,11 +20,14 @@ class ListViewModel: ListViewModelProtocol {
     @Published var isLoading = false
 
     private let service: PokemonServiceProtocol
+    private let userService: UserServiceProtocol
     private var cancellables = Set<AnyCancellable>()
     private var resources = [PokemonResource]()
 
-    init(service: PokemonServiceProtocol = PokemonService<PokemonCache>()) {
+    init(service: PokemonServiceProtocol = PokemonService<PokemonCache>(),
+         userService: UserServiceProtocol = UserService()) {
         self.service = service
+        self.userService = userService
     }
 
     func getData() {
@@ -67,7 +71,11 @@ private extension ListViewModel {
 
     func getItemVo(pokemon: Pokemon) -> PokemonCellVo {
         return PokemonCellVo(name: pokemon.name.capitalized,
-                             imageURL: pokemon.image)
+                             imageURL: pokemon.image,
+                             isFavorite: self.userService.isFavorite(pokemonId: pokemon.id),
+                             favoriteButtonTapped: {
+            self.toggleFavorite(pokemon: pokemon)
+        })
     }
 
     func getNextDetailsPage() {
@@ -93,5 +101,10 @@ private extension ListViewModel {
             }
             .store(in: &self.cancellables)
 
+    }
+
+    func toggleFavorite(pokemon: Pokemon) {
+        let isFavorite = userService.toggleFavorite(pokemonId: pokemon.id)
+        vo.items.first(where: { $0.id.lowercased() == pokemon.name.lowercased() })?.isFavorite = isFavorite
     }
 }

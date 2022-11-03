@@ -20,7 +20,7 @@
 		F88A655C2735530A004B12AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F88A655B2735530A004B12AB /* Assets.xcassets */; };
 		F88A655F2735530A004B12AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F88A655E2735530A004B12AB /* Preview Assets.xcassets */; };
 		F8D0A4FE2912AF45006AA418 /* PokemonServices in Frameworks */ = {isa = PBXBuildFile; productRef = F8D0A4FD2912AF45006AA418 /* PokemonServices */; };
-		F8D0A50E2912BA5A006AA418 /* UserServices in Frameworks */ = {isa = PBXBuildFile; productRef = F8D0A50D2912BA5A006AA418 /* UserServices */; };
+		F8D0A5102913BDC1006AA418 /* Userservices in Frameworks */ = {isa = PBXBuildFile; productRef = F8D0A50F2913BDC1006AA418 /* Userservices */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8D0A50E2912BA5A006AA418 /* UserServices in Frameworks */,
 				F8367C8E274BB94900480FD1 /* Kingfisher in Frameworks */,
+				F8D0A5102913BDC1006AA418 /* Userservices in Frameworks */,
 				F8D0A4FE2912AF45006AA418 /* PokemonServices in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,7 +232,7 @@
 			packageProductDependencies = (
 				F8367C8D274BB94900480FD1 /* Kingfisher */,
 				F8D0A4FD2912AF45006AA418 /* PokemonServices */,
-				F8D0A50D2912BA5A006AA418 /* UserServices */,
+				F8D0A50F2913BDC1006AA418 /* Userservices */,
 			);
 			productName = PokemonLand;
 			productReference = F88A65542735530A004B12AB /* PokemonLand.app */;
@@ -866,9 +866,9 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = PokemonServices;
 		};
-		F8D0A50D2912BA5A006AA418 /* UserServices */ = {
+		F8D0A50F2913BDC1006AA418 /* Userservices */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = UserServices;
+			productName = Userservices;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

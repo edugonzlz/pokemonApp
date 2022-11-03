@@ -1,5 +1,6 @@
 import Foundation
 import Combine
+import SwiftUI
 
 extension ListViewModel {
     struct ListVo {
@@ -7,9 +8,19 @@ extension ListViewModel {
         var totalItems: Int
     }
 
-    struct PokemonCellVo {
+    class PokemonCellVo: ObservableObject {
+
         let name: String
         let imageURL: URL?
+        @Published var isFavorite: Bool
+        let favoriteButtonTapped: () -> Void
+
+        init(name: String, imageURL: URL? = nil, isFavorite: Bool, favoriteButtonTapped: @escaping () -> Void) {
+            self.name = name
+            self.imageURL = imageURL
+            self.isFavorite = isFavorite
+            self.favoriteButtonTapped = favoriteButtonTapped
+        }
     }
 }
 

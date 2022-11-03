@@ -1,19 +1,21 @@
 import Foundation
 
-protocol UserDataBaseProtocol {
+public protocol UserDataBaseProtocol {
     func save(data: Data, key: String)
     func getData(key: String) -> Data?
 }
 
-class UserDataBase: UserDataBaseProtocol {
+public class UserDataBase: UserDataBaseProtocol {
 
     private let userDefaults = UserDefaults.standard
 
-    func save(data: Data, key: String) {
+    public init() {}
+    
+    public func save(data: Data, key: String) {
         userDefaults.set(data, forKey: key)
     }
 
-    func getData(key: String) -> Data? {
+    public func getData(key: String) -> Data? {
         userDefaults.data(forKey: key)
     }
 }

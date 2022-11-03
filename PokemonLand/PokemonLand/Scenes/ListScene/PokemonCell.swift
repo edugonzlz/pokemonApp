@@ -3,10 +3,19 @@ import Kingfisher
 
 struct PokemonCell: View {
     
-    var vo: ListViewModel.PokemonCellVo
+    @ObservedObject var vo: ListViewModel.PokemonCellVo
     
     var body: some View {
         VStack {
+            HStack {
+                Spacer()
+                FavoriteView(isFavorite: $vo.isFavorite)
+                    .padding(8)
+                    .onTapGesture {
+                        vo.favoriteButtonTapped()
+                    }
+            }
+
             KFImage(vo.imageURL)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -31,5 +40,26 @@ struct PokemonCell: View {
 private extension PokemonCell {
     struct Constants {
         static let padding: CGFloat = 10
+    }
+}
+
+private struct FavoriteView: View {
+
+    @Binding var isFavorite: Bool
+
+    var body: some View {
+        isFavorite ?
+        Image(systemName: "star.fill")
+            .tint(.yellow) :
+        Image(systemName: "star")
+            .tint(.gray)
+    }
+}
+
+struct PokemonCell_Previews: PreviewProvider {
+    static var previews: some View {
+        PokemonCell(vo: .init(name: "Name", imageURL: nil, isFavorite: true, favoriteButtonTapped: {
+
+        }))
     }
 }

@@ -1,7 +1,7 @@
 import Foundation
 
 public extension Data {
-    func dataToSet<T>() -> Set<T>? {
-      (try? JSONSerialization.jsonObject(with: self, options: [])) as? Set<T>
+    func dataToArray<T>() -> Array<T>? {
+      (try? JSONSerialization.jsonObject(with: self, options: [])) as? Array<T>
     }
 }
