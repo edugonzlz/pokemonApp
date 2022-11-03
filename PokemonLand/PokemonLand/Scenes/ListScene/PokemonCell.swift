@@ -12,7 +12,7 @@ struct PokemonCell: View {
                 FavoriteView(isFavorite: $vo.isFavorite)
                     .padding(8)
                     .onTapGesture {
-                        vo.favoriteButtonTapped()
+                        vo.favoriteButtonTapped?()
                     }
             }
 
@@ -58,8 +58,6 @@ private struct FavoriteView: View {
 
 struct PokemonCell_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonCell(vo: .init(name: "Name", imageURL: nil, isFavorite: true, favoriteButtonTapped: {
-
-        }))
+        PokemonCell(vo: .init(name: "Name", imageURL: nil, isFavorite: true))
     }
 }

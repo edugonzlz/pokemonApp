@@ -7,9 +7,6 @@ public protocol UserServiceProtocol {
 }
 
 public class UserService: UserServiceProtocol {
-    private enum Keys: String {
-        case favorites
-    }
 
     private let database: UserDataBaseProtocol
 
@@ -18,51 +15,16 @@ public class UserService: UserServiceProtocol {
     }
 
     public func isFavorite(pokemonId: Int) -> Bool {
-        return favorites().contains(pokemonId)
+        database.isFavorite(pokemonId: pokemonId)
     }
 
     public func toggleFavorite(pokemonId: Int) -> Bool {
-        if favorites().contains(pokemonId) {
-            removeFavorite(pokemonId: pokemonId)
+        if database.favorites().contains(pokemonId) {
+            database.removeFavorite(pokemonId: pokemonId)
             return false
         } else {
-            saveFavorite(pokemonId: pokemonId)
+            database.saveFavorite(pokemonId: pokemonId)
             return true
         }
-    }
-}
-
-// MARK: - Favorites
-private extension UserService {
-    func favorites() -> Set<Int> {
-        if let data = database.getData(key: Keys.favorites.rawValue),
-           let favorites: Array<Int> = data.dataToArray() {
-            return Set(favorites)
-        } else {
-            let emptySet: Set<Int> = Set([])
-            updateFavorites(data: emptySet.convertToData())
-            return emptySet
-        }
-    }
-
-    func saveFavorite(pokemonId: Int) {
-        var favorites = favorites()
-        favorites.insert(pokemonId)
-        updateFavorites(data: favorites.convertToData())
-        print("Favorites: \(favorites)")
-    }
-
-    func removeFavorite(pokemonId: Int) {
-        var favorites = favorites()
-        favorites.remove(pokemonId)
-        updateFavorites(data: favorites.convertToData())
-        print("Favorites: \(favorites)")
-    }
-
-    func updateFavorites(data: Data?) {
-        guard let data = data else {
-            return
-        }
-        database.save(data: data, key: Keys.favorites.rawValue)
     }
 }

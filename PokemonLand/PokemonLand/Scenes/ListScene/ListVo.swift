@@ -9,17 +9,15 @@ extension ListViewModel {
     }
 
     class PokemonCellVo: ObservableObject {
-
         let name: String
         let imageURL: URL?
         @Published var isFavorite: Bool
-        let favoriteButtonTapped: () -> Void
+        var favoriteButtonTapped: (() -> Void)?
 
-        init(name: String, imageURL: URL? = nil, isFavorite: Bool, favoriteButtonTapped: @escaping () -> Void) {
+        init(name: String, imageURL: URL? = nil, isFavorite: Bool) {
             self.name = name
             self.imageURL = imageURL
             self.isFavorite = isFavorite
-            self.favoriteButtonTapped = favoriteButtonTapped
         }
     }
 }

@@ -70,12 +70,15 @@ private extension ListViewModel {
     }
 
     func getItemVo(pokemon: Pokemon) -> PokemonCellVo {
-        return PokemonCellVo(name: pokemon.name.capitalized,
+        let cellVo = PokemonCellVo(name: pokemon.name.capitalized,
                              imageURL: pokemon.image,
-                             isFavorite: self.userService.isFavorite(pokemonId: pokemon.id),
-                             favoriteButtonTapped: {
-            self.toggleFavorite(pokemon: pokemon)
-        })
+                             isFavorite: self.userService.isFavorite(pokemonId: pokemon.id))
+
+        cellVo.favoriteButtonTapped = {
+            self.toggleFavorite(id: pokemon.id, cellVo: cellVo)
+        }
+
+        return cellVo
     }
 
     func getNextDetailsPage() {
@@ -103,8 +106,8 @@ private extension ListViewModel {
 
     }
 
-    func toggleFavorite(pokemon: Pokemon) {
-        let isFavorite = userService.toggleFavorite(pokemonId: pokemon.id)
-        vo.items.first(where: { $0.id.lowercased() == pokemon.name.lowercased() })?.isFavorite = isFavorite
+    func toggleFavorite(id: Int, cellVo: PokemonCellVo) {
+        let isFavorite = userService.toggleFavorite(pokemonId: id)
+        cellVo.isFavorite = isFavorite
     }
 }
