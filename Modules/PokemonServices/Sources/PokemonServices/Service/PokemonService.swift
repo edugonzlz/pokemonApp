@@ -3,6 +3,9 @@ import CommonCore
 import Combine
 
 public protocol PokemonServiceProtocol {
+    func save(pokemon: Pokemon)
+    func remove(pokemonId: Int)
+
     func getPokemons(pagination: PaginationParameters?, completion: @escaping (Result<PokemonList, Error>) -> Void)
     func getPokemon(id: Int, completion: @escaping (Result<Pokemon, Error>) -> Void)
     func getPokemon(name: String, completion: @escaping (Result<Pokemon, Error>) -> Void)
@@ -15,12 +18,25 @@ public protocol PokemonServiceProtocol {
 public class PokemonService<Cache: PokemonCacheProtocol>: PokemonServiceProtocol {
 
     private let apiClient: ApiClientProtocol
-    private let pokemonCache: Cache
+    private let cache: Cache
+    private let dataBase: PokemonDataBaseProtocol
 
     public init(apiClient: ApiClientProtocol = ApiClient(),
-                pokemonCache: Cache = PokemonCache() as! Cache) {
+                cache: Cache = PokemonCache() as! Cache,
+                dataBase: PokemonDataBaseProtocol = PokemonDataBase.shared) {
         self.apiClient = apiClient
-        self.pokemonCache = pokemonCache
+        self.cache = cache
+        self.dataBase = dataBase
+    }
+}
+
+public extension PokemonService {
+    func save(pokemon: Pokemon) {
+        dataBase.save(pokemon: pokemon)
+    }
+
+    func remove(pokemonId: Int) {
+        dataBase.remove(pokemonId: pokemonId)
     }
 }
 
@@ -37,6 +53,10 @@ public extension PokemonService {
     }
 
     func getPokemon(id: Int, completion: @escaping (Result<Pokemon, Error>) -> Void) {
+        if let pokemon = dataBase.pokemon(forId: id) {
+            return completion(.success(pokemon))
+        }
+
         do {
             let urlRequest = try Endpoints.getPokemonById(id).makeRequest()
             apiClient.request(urlRequest: urlRequest,
@@ -47,7 +67,7 @@ public extension PokemonService {
     }
 
     func getPokemon(name: String, completion: @escaping (Result<Pokemon, Error>) -> Void) {
-        if let pokemon = pokemonCache.value(forKey: name) {
+        if let pokemon = cache.value(forKey: name) {
             return completion(.success(pokemon))
         }
 
@@ -56,7 +76,7 @@ public extension PokemonService {
             apiClient.request(urlRequest: urlRequest) { (result: (Result<Pokemon, Error>)) in
                 switch result {
                 case .success(let data):
-                    self.pokemonCache.insert(data, forKey: data.name)
+//                    self.cache.insert(data, forKey: data.name)
                     completion(.success(data))
                 case .failure:
                     completion(result)
@@ -80,6 +100,12 @@ public extension PokemonService {
     }
 
     func getPokemon(id: Int) -> AnyPublisher<Pokemon, Error> {
+        if let pokemon = dataBase.pokemon(forId: id) {
+            return Just(pokemon)
+                .mapError { error -> Error in }
+                .eraseToAnyPublisher()
+        }
+
         do {
             let urlRequest = try Endpoints.getPokemonById(id).makeRequest()
             return apiClient.request(urlRequest: urlRequest)
@@ -89,7 +115,7 @@ public extension PokemonService {
     }
 
     func getPokemon(name: String) -> AnyPublisher<Pokemon, Error> {
-        if let pokemon = pokemonCache.value(forKey: name) {
+        if let pokemon = cache.value(forKey: name) {
             return Just(pokemon)
                 .mapError { error -> Error in }
                 .eraseToAnyPublisher()
@@ -99,7 +125,7 @@ public extension PokemonService {
             let urlRequest = try Endpoints.getPokemonByName(name).makeRequest()
             return apiClient.request(urlRequest: urlRequest)
                 .map { (item: Pokemon) in
-                    self.pokemonCache.insert(item, forKey: item.name)
+//                    self.cache.insert(item, forKey: item.name)
                     return item
                 }.eraseToAnyPublisher()
 

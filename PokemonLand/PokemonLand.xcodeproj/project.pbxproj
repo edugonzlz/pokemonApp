@@ -27,6 +27,7 @@
 		F8CC153129153BB800EB4BE1 /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CC153029153BB800EB4BE1 /* ConnectionStatusView.swift */; };
 		F8CC153329153DD100EB4BE1 /* PokemonLandAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CC153229153DD100EB4BE1 /* PokemonLandAppViewModel.swift */; };
 		F8CC1535291546D900EB4BE1 /* PokemonCell+Vo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CC1534291546D900EB4BE1 /* PokemonCell+Vo.swift */; };
+		F8CC15382915492F00EB4BE1 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CC15372915492F00EB4BE1 /* UserManager.swift */; };
 		F8D0A4FE2912AF45006AA418 /* PokemonServices in Frameworks */ = {isa = PBXBuildFile; productRef = F8D0A4FD2912AF45006AA418 /* PokemonServices */; };
 		F8D0A5102913BDC1006AA418 /* Userservices in Frameworks */ = {isa = PBXBuildFile; productRef = F8D0A50F2913BDC1006AA418 /* Userservices */; };
 /* End PBXBuildFile section */
@@ -67,6 +68,7 @@
 		F8CC153029153BB800EB4BE1 /* ConnectionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusView.swift; sourceTree = "<group>"; };
 		F8CC153229153DD100EB4BE1 /* PokemonLandAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonLandAppViewModel.swift; sourceTree = "<group>"; };
 		F8CC1534291546D900EB4BE1 /* PokemonCell+Vo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PokemonCell+Vo.swift"; sourceTree = "<group>"; };
+		F8CC15372915492F00EB4BE1 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		F8D0A4F52912ABF1006AA418 /* PokemonServices */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PokemonServices; path = ../Modules/PokemonServices; sourceTree = "<group>"; };
 		F8D0A5092912B651006AA418 /* Userservices */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Userservices; path = ../Modules/Userservices; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -264,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				F8CC152C2915317800EB4BE1 /* ReachabilityManager.swift */,
+				F8CC15372915492F00EB4BE1 /* UserManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8CC15382915492F00EB4BE1 /* UserManager.swift in Sources */,
 				F8CC152D2915317800EB4BE1 /* ReachabilityManager.swift in Sources */,
 				F8CC1535291546D900EB4BE1 /* PokemonCell+Vo.swift in Sources */,
 				F8CC15232914051600EB4BE1 /* FavoritesListView.swift in Sources */,

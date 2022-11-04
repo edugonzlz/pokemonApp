@@ -18,12 +18,16 @@ class FavoritesListViewModel: FavoritesListViewModelProtocol {
 
     private let service: PokemonServiceProtocol
     private let userService: UserServiceProtocol
+    private let userManager: UserManagerProtocol
+
     private var cancellables = Set<AnyCancellable>()
 
     init(service: PokemonServiceProtocol = PokemonService<PokemonCache>(),
-         userService: UserServiceProtocol = UserService()) {
+         userService: UserServiceProtocol = UserService(),
+         userManager: UserManagerProtocol = UserManager()) {
         self.service = service
         self.userService = userService
+        self.userManager = userManager
 
         listenFavorites()
     }
@@ -40,7 +44,7 @@ private extension FavoritesListViewModel {
 
         var publishers = [AnyPublisher<Pokemon, Error>]()
         ids.forEach {
-            publishers.append(service.getPokemon(name: String($0)))
+            publishers.append(service.getPokemon(id: $0))
         }
 
         publishers
@@ -66,7 +70,7 @@ private extension FavoritesListViewModel {
                        imageURL: pokemon.image,
                        isFavorite: self.userService.isFavorite(pokemonId: pokemon.id),
                        favoriteButtonTapped: {
-            self.userService.toggleFavorite(pokemonId: pokemon.id)
+            self.userManager.toggleFavorite(pokemon: pokemon)
         })
     }
 

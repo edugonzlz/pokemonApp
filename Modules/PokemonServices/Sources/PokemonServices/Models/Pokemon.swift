@@ -6,7 +6,7 @@ extension Pokemon: Hashable {
     }
 }
 
-public struct Pokemon: Decodable {
+public struct Pokemon: Codable {
     public let id: Int
     public let name: String
     public let order: Int?
@@ -44,7 +44,7 @@ public struct Pokemon: Decodable {
 }
 
 public extension Pokemon {
-    struct PokemonSprites: Decodable {
+    struct PokemonSprites: Codable {
         let frontDefault: String?
         let frontShiny: String?
         let frontFemale: String?

@@ -21,13 +21,17 @@ class ListViewModel: ListViewModelProtocol {
 
     private let service: PokemonServiceProtocol
     private let userService: UserServiceProtocol
+    private let userManager: UserManagerProtocol
+
     private var cancellables = Set<AnyCancellable>()
     private var resources = [PokemonResource]()
 
     init(service: PokemonServiceProtocol = PokemonService<PokemonCache>(),
-         userService: UserServiceProtocol = UserService()) {
+         userService: UserServiceProtocol = UserService(),
+         userManager: UserManagerProtocol = UserManager()) {
         self.service = service
         self.userService = userService
+        self.userManager = userManager
 
         listenFavorites()
     }
@@ -106,7 +110,7 @@ private extension ListViewModel {
                        imageURL: pokemon.image,
                        isFavorite: self.userService.isFavorite(pokemonId: pokemon.id),
                        favoriteButtonTapped: {
-            self.userService.toggleFavorite(pokemonId: pokemon.id)
+            self.userManager.toggleFavorite(pokemon: pokemon)
         })
     }
 
