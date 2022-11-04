@@ -97,20 +97,20 @@ private extension ListViewModel {
                 let orderedData = data.sorted(by: { $0.id < $1.id })
                 orderedData.forEach { item in
                     self.pokemons[item.id] = item
-                    self.vo.items.append(self.getItemVo(pokemon: item))
+                    self.vo.items.append(self.composeCellVo(with: item))
                 }
             }
             .store(in: &self.cancellables)
 
     }
 
-    func getItemVo(pokemon: Pokemon) -> PokemonCell.Vo {
+    func composeCellVo(with pokemon: Pokemon) -> PokemonCell.Vo {
         PokemonCell.Vo(id: pokemon.id,
                        name: pokemon.name.capitalized,
                        imageURL: pokemon.image,
                        isFavorite: self.userService.isFavorite(pokemonId: pokemon.id),
-                       favoriteButtonTapped: {
-            self.userManager.toggleFavorite(pokemon: pokemon)
+                       favoriteButtonTapped: { [weak self] in
+            self?.userManager.toggleFavorite(pokemon: pokemon)
         })
     }
 
