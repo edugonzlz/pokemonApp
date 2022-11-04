@@ -2,8 +2,23 @@ import SwiftUI
 import Kingfisher
 
 struct PokemonCell: View {
-    
-    @ObservedObject var vo: ListViewModel.PokemonCellVo
+    class Vo: ObservableObject {
+        let id: Int
+        let name: String
+        let imageURL: URL?
+        @Published var isFavorite: Bool
+        var favoriteButtonTapped: () -> Void
+
+        init(id: Int, name: String, imageURL: URL? = nil, isFavorite: Bool, favoriteButtonTapped: @escaping () -> Void) {
+            self.id = id
+            self.name = name
+            self.imageURL = imageURL
+            self.isFavorite = isFavorite
+            self.favoriteButtonTapped = favoriteButtonTapped
+        }
+    }
+
+    @ObservedObject var vo: Vo
     
     var body: some View {
         VStack {
@@ -12,7 +27,7 @@ struct PokemonCell: View {
                 FavoriteView(isFavorite: $vo.isFavorite)
                     .padding(8)
                     .onTapGesture {
-                        vo.favoriteButtonTapped?()
+                        vo.favoriteButtonTapped()
                     }
             }
 
@@ -58,6 +73,18 @@ private struct FavoriteView: View {
 
 struct PokemonCell_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonCell(vo: .init(name: "Name", imageURL: nil, isFavorite: true))
+        PokemonCell(vo: .init(id: 1, name: "Name", imageURL: nil, isFavorite: true, favoriteButtonTapped: {}))
+    }
+}
+
+extension PokemonCell.Vo: Identifiable {
+    static func == (lhs: PokemonCell.Vo, rhs: PokemonCell.Vo) -> Bool {
+        return lhs.name == rhs.name
+    }
+}
+
+extension PokemonCell.Vo: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
     }
 }

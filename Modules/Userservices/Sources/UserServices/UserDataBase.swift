@@ -1,14 +1,21 @@
 import Foundation
+import Combine
 
 public protocol UserDataBaseProtocol {
     func favorites() -> Set<Int>
+    func favoritesPublisher() -> AnyPublisher<Set<Int>, Never>
     func isFavorite(pokemonId: Int) -> Bool
     func saveFavorite(pokemonId: Int)
     func removeFavorite(pokemonId: Int)
 }
 
 public class UserDataBase: UserDataBaseProtocol {
-    public init() {}
+
+    private let favoritesSubject = PassthroughSubject<Set<Int>, Never>()
+
+    public static let shared = UserDataBase()
+
+    private init() {}
 }
 
 // MARK: - Favorites
@@ -22,6 +29,10 @@ public extension UserDataBase {
             updateFavorites(data: emptySet.convertToData())
             return emptySet
         }
+    }
+
+    func favoritesPublisher() -> AnyPublisher<Set<Int>, Never> {
+        favoritesSubject.eraseToAnyPublisher()
     }
 
     func isFavorite(pokemonId: Int) -> Bool {
@@ -63,5 +74,8 @@ private extension UserDataBase {
             return
         }
         save(data: data, key: Keys.favorites.rawValue)
+        if let favorites: Array<Int> = data.dataToArray() {
+            favoritesSubject.send(Set(favorites))
+        }
     }
 }

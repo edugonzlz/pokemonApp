@@ -19,6 +19,9 @@
 		F88A65582735530A004B12AB /* PokemonLandApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88A65572735530A004B12AB /* PokemonLandApp.swift */; };
 		F88A655C2735530A004B12AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F88A655B2735530A004B12AB /* Assets.xcassets */; };
 		F88A655F2735530A004B12AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F88A655E2735530A004B12AB /* Preview Assets.xcassets */; };
+		F8CC15232914051600EB4BE1 /* FavoritesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CC15222914051600EB4BE1 /* FavoritesListView.swift */; };
+		F8CC15272914060900EB4BE1 /* FavoritesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CC15262914060900EB4BE1 /* FavoritesListViewModel.swift */; };
+		F8CC152A291406F800EB4BE1 /* FavoritesListVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CC1529291406F800EB4BE1 /* FavoritesListVo.swift */; };
 		F8D0A4FE2912AF45006AA418 /* PokemonServices in Frameworks */ = {isa = PBXBuildFile; productRef = F8D0A4FD2912AF45006AA418 /* PokemonServices */; };
 		F8D0A5102913BDC1006AA418 /* Userservices in Frameworks */ = {isa = PBXBuildFile; productRef = F8D0A50F2913BDC1006AA418 /* Userservices */; };
 /* End PBXBuildFile section */
@@ -51,6 +54,9 @@
 		F89B7C6D2912982900E5B13D /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Modules/PokemonServices/Package.swift; sourceTree = "<group>"; };
 		F8A77C7F27358CF1006755BF /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		F8A77C8027358CFE006755BF /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		F8CC15222914051600EB4BE1 /* FavoritesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListView.swift; sourceTree = "<group>"; };
+		F8CC15262914060900EB4BE1 /* FavoritesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListViewModel.swift; sourceTree = "<group>"; };
+		F8CC1529291406F800EB4BE1 /* FavoritesListVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVo.swift; sourceTree = "<group>"; };
 		F8D0A4F52912ABF1006AA418 /* PokemonServices */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PokemonServices; path = ../Modules/PokemonServices; sourceTree = "<group>"; };
 		F8D0A5092912B651006AA418 /* Userservices */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Userservices; path = ../Modules/Userservices; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,7 +102,6 @@
 		F8367C85274BA3CB00480FD1 /* ListScene */ = {
 			isa = PBXGroup;
 			children = (
-				F8367C88274BA8CA00480FD1 /* PokemonCell.swift */,
 				F8367C8A274BA9A400480FD1 /* ListVo.swift */,
 				F8367C83274BA28E00480FD1 /* ListView.swift */,
 				F8367C86274BA3D900480FD1 /* ListViewModel.swift */,
@@ -140,6 +145,7 @@
 		F85AC61F274F8E8A00BF930F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F8CC15212914050200EB4BE1 /* FavoritesScene */,
 				F8367C85274BA3CB00480FD1 /* ListScene */,
 				F8367C90274D3B7400480FD1 /* DetailScene */,
 			);
@@ -169,6 +175,7 @@
 		F88A65562735530A004B12AB /* PokemonLand */ = {
 			isa = PBXGroup;
 			children = (
+				F8CC15242914058200EB4BE1 /* Common */,
 				F8A77C7D27358C65006755BF /* Configurations */,
 				F85AC61B274F8E4E00BF930F /* App */,
 				F85AC61F274F8E8A00BF930F /* Scenes */,
@@ -211,6 +218,40 @@
 				F8A77C8027358CFE006755BF /* Production.xcconfig */,
 			);
 			path = Configurations;
+			sourceTree = "<group>";
+		};
+		F8CC15212914050200EB4BE1 /* FavoritesScene */ = {
+			isa = PBXGroup;
+			children = (
+				F8CC1529291406F800EB4BE1 /* FavoritesListVo.swift */,
+				F8CC15222914051600EB4BE1 /* FavoritesListView.swift */,
+				F8CC15262914060900EB4BE1 /* FavoritesListViewModel.swift */,
+			);
+			path = FavoritesScene;
+			sourceTree = "<group>";
+		};
+		F8CC15242914058200EB4BE1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F8CC15252914058800EB4BE1 /* UI */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F8CC15252914058800EB4BE1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F8CC15282914064B00EB4BE1 /* PokemonCell */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		F8CC15282914064B00EB4BE1 /* PokemonCell */ = {
+			isa = PBXGroup;
+			children = (
+				F8367C88274BA8CA00480FD1 /* PokemonCell.swift */,
+			);
+			path = PokemonCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,10 +362,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8CC15232914051600EB4BE1 /* FavoritesListView.swift in Sources */,
 				F8367C8B274BA9A400480FD1 /* ListVo.swift in Sources */,
 				F8367C92274D3B8800480FD1 /* DetailView.swift in Sources */,
 				F8367C94274D3BF200480FD1 /* DetailViewModel.swift in Sources */,
+				F8CC152A291406F800EB4BE1 /* FavoritesListVo.swift in Sources */,
 				F85AC61A274E84EF00BF930F /* Mocks.swift in Sources */,
+				F8CC15272914060900EB4BE1 /* FavoritesListViewModel.swift in Sources */,
 				F85AC61E274F8E6900BF930F /* View+extensions.swift in Sources */,
 				F88A65582735530A004B12AB /* PokemonLandApp.swift in Sources */,
 				F8367C87274BA3DA00480FD1 /* ListViewModel.swift in Sources */,

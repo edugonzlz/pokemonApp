@@ -1,45 +1,36 @@
 import SwiftUI
 
-struct ListView<M: ListViewModelProtocol>: View {
-    
+struct FavoritesListView<M: FavoritesListViewModelProtocol>: View {
+
     @ObservedObject var viewModel: M
-    
+
     var body: some View {
         GeometryReader { proxy in
             ScrollView {
                 LazyVGrid(columns: config(viewWidth: proxy.size.width),
                           spacing: Constants.margin) {
-                    
+
                     ForEach(viewModel.vo.items) { item in
                         NavigationLink {
                             if let pokemon = viewModel.pokemons[item.id] {
                                 DetailView(viewModel: DetailViewModel(data: pokemon)) }
                         }
-                    label: {
-                        PokemonCell(vo: item)
-                            .onAppear {
-                                self.viewModel.loadMoreRows(pokemonName: item.name)
-                            }}
+                    label: { PokemonCell(vo: item) }
                     }
-                    
+
                 }.onAppear {
                     self.viewModel.getData()
-                    
+
                 }.padding(EdgeInsets(top: 0, leading: Constants.margin,
                                      bottom: 0, trailing: Constants.margin))
-                
-                if viewModel.isLoading {
-                    Spacer(minLength: 20)
-                    ProgressView()
-                }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarTitle("Pokemon Land (\(viewModel.vo.items.count) - \(viewModel.vo.totalItems))")
+            .navigationBarTitle("Favorites")
         }
     }
 }
 
-private extension ListView {
+private extension FavoritesListView {
     struct Constants {
         static var margin: CGFloat {
             10
@@ -51,7 +42,7 @@ private extension ListView {
             return (viewWidth - margin * 3)/2
         }
     }
-    
+
     func config(viewWidth: CGFloat) -> [GridItem] {
         return [GridItem(.adaptive(minimum: Constants.cellWidth(viewWidth: viewWidth)))]
     }
