@@ -18,5 +18,11 @@ struct TabBar: View {
                 Label("Favorites", systemImage: "star.fill")
             }
         }
+        .accentColor(.purple)
+        .onAppear {
+            UITabBar.appearance().backgroundImage = UIImage()
+            UITabBar.appearance().isTranslucent = true
+            UITabBar.appearance().backgroundColor = .white
+        }
     }
 }

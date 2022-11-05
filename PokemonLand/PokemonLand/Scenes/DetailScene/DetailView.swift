@@ -24,6 +24,7 @@ struct DetailView: View {
         .background(.red)
         .navigationBarTitle(viewModel.vo.name)
         .navigationBarTitleDisplayMode(.large)
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 
