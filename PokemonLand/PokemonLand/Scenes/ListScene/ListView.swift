@@ -33,6 +33,11 @@ struct ListView<M: ListViewModelProtocol>: View {
                     ProgressView()
                 }
             }
+            .searchable(text: Binding(get: {
+                viewModel.searchText
+            }, set: { value in
+                viewModel.listen(searchText: value)
+            }))
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarTitle("Pokemon Land (\(viewModel.vo.items.count) - \(viewModel.vo.totalItems))")
         }

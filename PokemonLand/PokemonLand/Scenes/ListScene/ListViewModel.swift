@@ -8,6 +8,8 @@ protocol ListViewModelProtocol: ObservableObject {
     var vo: ListViewModel.ListVo { get }
     var pokemons: [Int: Pokemon] { get }
     var isLoading: Bool { get }
+    var searchText: String { get }
+    func listen(searchText: String)
 
     func getData()
     func loadMoreRows(pokemonName: String)
@@ -18,13 +20,17 @@ class ListViewModel: ListViewModelProtocol {
     @Published var vo: ListVo = ListVo(items: [], totalItems: 0)
     var pokemons = [Int: Pokemon]()
     @Published var isLoading = false
+    @Published var searchText = ""
 
     private let service: PokemonServiceProtocol
     private let userService: UserServiceProtocol
     private let userManager: UserManagerProtocol
 
     private var cancellables = Set<AnyCancellable>()
+    private var favoriteCancellables = Set<AnyCancellable>()
+
     private var resources = [PokemonResource]()
+    private var searching = false
 
     init(service: PokemonServiceProtocol = PokemonService<PokemonCache>(),
          userService: UserServiceProtocol = UserService(),
@@ -42,11 +48,32 @@ class ListViewModel: ListViewModelProtocol {
     }
 
     func loadMoreRows(pokemonName: String) {
+        guard !searching, !isLoading else {
+            return
+        }
         guard let index = vo.items.firstIndex(where: { pokemonName.lowercased() == $0.name.lowercased() }),
-              (index + 1) == vo.items.count, !isLoading else {
-                  return
-              }
-        getNextDetailsPage()
+              (index + 1) == vo.items.count else {
+            return
+        }
+        getNextDetailsPage(resources: resources)
+    }
+
+    func listen(searchText: String) {
+        self.searchText = searchText
+
+        switch searchText.count {
+        case 0:
+            searching = false
+            reset()
+            getNextDetailsPage(resources: resources)
+        case 1...2:
+            searching = false
+            reset()
+        default:
+            searching = true
+            reset()
+            search(text: searchText)
+        }
     }
 }
 
@@ -74,17 +101,25 @@ private extension ListViewModel {
             }, receiveValue: { data in
                 self.resources = data.results
                 self.vo.totalItems = data.results.count
-                self.getNextDetailsPage()
+                self.getNextDetailsPage(resources: data.results)
             })
             .store(in: &self.cancellables)
     }
 
-    func getNextDetailsPage() {
-        isLoading = true
+    func getNextDetailsPage(resources: [PokemonResource]) {
+        guard !resources.isEmpty else {
+            return
+        }
         var publishers = [AnyPublisher<Pokemon, Error>]()
         for index in pokemons.count..<(pokemons.count + Constants.listPageItems) {
             publishers.append(service.getPokemon(name: resources[index].name))
         }
+
+        getDetails(publishers: publishers)
+    }
+
+    func getDetails(publishers: [AnyPublisher<Pokemon, Error>]) {
+        isLoading = true
 
         publishers
             .publisher
@@ -118,10 +153,27 @@ private extension ListViewModel {
         userService.favoritesPublisher()
             .receive(on: DispatchQueue.main)
             .sink { favorites in
+                print("fav listened: \(favorites)")
                 self.vo.items.forEach { item in
                     item.isFavorite = favorites.contains(item.id)
                 }
             }
-            .store(in: &self.cancellables)
+            .store(in: &self.favoriteCancellables)
+    }
+
+    func search(text: String) {
+        let publishers: [AnyPublisher<Pokemon, Error>] = resources
+            .filter({ $0.name.lowercased().contains(self.searchText.lowercased())})
+            .map {
+                service.getPokemon(name: $0.name)
+            }
+
+        getDetails(publishers: publishers)
+    }
+
+    func reset() {
+        pokemons.removeAll()
+        vo.items.removeAll()
+        cancellables.removeAll()
     }
 }
