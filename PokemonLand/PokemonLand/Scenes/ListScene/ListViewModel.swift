@@ -6,32 +6,37 @@ import SwiftUI
 
 protocol ListViewModelProtocol: ObservableObject {
     var vo: ListViewModel.ListVo { get }
-    var pokemons: [Int: Pokemon] { get }
     var isLoading: Bool { get }
     var searchText: String { get }
-    func listen(searchText: String)
+    var pokemons: [Int: Pokemon] { get }
 
     func getData()
     func loadMoreRows(pokemonName: String)
+    func listen(searchText: String)
 }
 
 class ListViewModel: ListViewModelProtocol {
 
+    // MARK: - Public
     @Published var vo: ListVo = ListVo(items: [], totalItems: 0)
-    var pokemons = [Int: Pokemon]()
     @Published var isLoading = false
     @Published var searchText = ""
+    var pokemons = [Int: Pokemon]()
 
+    // MARK: - Dependencies
     private let service: PokemonServiceProtocol
     private let userService: UserServiceProtocol
     private let userManager: UserManagerProtocol
 
+    // MARK: - Cancellables
     private var cancellables = Set<AnyCancellable>()
     private var favoriteCancellables = Set<AnyCancellable>()
 
+    // MARK: - Local variables
     private var resources = [PokemonResource]()
     private var searching = false
 
+    // MARK: - Init
     init(service: PokemonServiceProtocol = PokemonService<PokemonCache>(),
          userService: UserServiceProtocol = UserService(),
          userManager: UserManagerProtocol = UserManager()) {
@@ -41,7 +46,10 @@ class ListViewModel: ListViewModelProtocol {
 
         listenFavorites()
     }
+}
 
+// MARK: - ListViewModelProtocol
+extension ListViewModel {
     func getData() {
         guard resources.isEmpty, !isLoading else { return }
         getPokemons()

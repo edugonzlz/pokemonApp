@@ -30,6 +30,7 @@ struct FavoritesListView<M: FavoritesListViewModelProtocol>: View {
     }
 }
 
+// MARK: - Private
 private extension FavoritesListView {
     struct Constants {
         static var margin: CGFloat {

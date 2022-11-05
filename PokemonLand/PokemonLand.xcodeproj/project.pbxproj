@@ -28,6 +28,7 @@
 		F8CC153329153DD100EB4BE1 /* PokemonLandAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CC153229153DD100EB4BE1 /* PokemonLandAppViewModel.swift */; };
 		F8CC1535291546D900EB4BE1 /* PokemonCell+Vo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CC1534291546D900EB4BE1 /* PokemonCell+Vo.swift */; };
 		F8CC15382915492F00EB4BE1 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CC15372915492F00EB4BE1 /* UserManager.swift */; };
+		F8CC153A2916526000EB4BE1 /* DetailVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CC15392916526000EB4BE1 /* DetailVo.swift */; };
 		F8D0A4FE2912AF45006AA418 /* PokemonServices in Frameworks */ = {isa = PBXBuildFile; productRef = F8D0A4FD2912AF45006AA418 /* PokemonServices */; };
 		F8D0A5102913BDC1006AA418 /* Userservices in Frameworks */ = {isa = PBXBuildFile; productRef = F8D0A50F2913BDC1006AA418 /* Userservices */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,7 @@
 		F8CC153229153DD100EB4BE1 /* PokemonLandAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonLandAppViewModel.swift; sourceTree = "<group>"; };
 		F8CC1534291546D900EB4BE1 /* PokemonCell+Vo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PokemonCell+Vo.swift"; sourceTree = "<group>"; };
 		F8CC15372915492F00EB4BE1 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		F8CC15392916526000EB4BE1 /* DetailVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVo.swift; sourceTree = "<group>"; };
 		F8D0A4F52912ABF1006AA418 /* PokemonServices */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PokemonServices; path = ../Modules/PokemonServices; sourceTree = "<group>"; };
 		F8D0A5092912B651006AA418 /* Userservices */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Userservices; path = ../Modules/Userservices; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +126,7 @@
 		F8367C90274D3B7400480FD1 /* DetailScene */ = {
 			isa = PBXGroup;
 			children = (
+				F8CC15392916526000EB4BE1 /* DetailVo.swift */,
 				F8367C91274D3B8800480FD1 /* DetailView.swift */,
 				F8367C93274D3BF200480FD1 /* DetailViewModel.swift */,
 			);
@@ -393,6 +396,7 @@
 				F8CC1535291546D900EB4BE1 /* PokemonCell+Vo.swift in Sources */,
 				F8CC15232914051600EB4BE1 /* FavoritesListView.swift in Sources */,
 				F8367C8B274BA9A400480FD1 /* ListVo.swift in Sources */,
+				F8CC153A2916526000EB4BE1 /* DetailVo.swift in Sources */,
 				F8367C92274D3B8800480FD1 /* DetailView.swift in Sources */,
 				F8CC153129153BB800EB4BE1 /* ConnectionStatusView.swift in Sources */,
 				F8367C94274D3BF200480FD1 /* DetailViewModel.swift in Sources */,

@@ -44,6 +44,7 @@ struct ListView<M: ListViewModelProtocol>: View {
     }
 }
 
+// MARK: - Private
 private extension ListView {
     struct Constants {
         static var margin: CGFloat {

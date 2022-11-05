@@ -13,15 +13,19 @@ protocol FavoritesListViewModelProtocol: ObservableObject {
 
 class FavoritesListViewModel: FavoritesListViewModelProtocol {
 
+    // MARK: - Public
     @Published var vo: ListVo = ListVo(items: [])
     var pokemons = [Int: Pokemon]()
 
+    // MARK: - Dependencies
     private let service: PokemonServiceProtocol
     private let userService: UserServiceProtocol
     private let userManager: UserManagerProtocol
 
+    // MARK: - Cancellables
     private var cancellables = Set<AnyCancellable>()
 
+    // MARK: - Init
     init(service: PokemonServiceProtocol = PokemonService<PokemonCache>(),
          userService: UserServiceProtocol = UserService(),
          userManager: UserManagerProtocol = UserManager()) {
@@ -31,7 +35,9 @@ class FavoritesListViewModel: FavoritesListViewModelProtocol {
 
         listenFavorites()
     }
-
+}
+// MARK: - FavoritesListViewModelProtocol
+extension FavoritesListViewModel {
     func getData() {
         getPokemons()
     }

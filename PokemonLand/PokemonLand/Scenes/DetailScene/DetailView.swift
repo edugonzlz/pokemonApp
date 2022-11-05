@@ -18,6 +18,9 @@ struct DetailView: View {
                 Spacer()
             }
         }
+        .onAppear {
+            viewModel.getData()
+        }
         .background(.red)
         .navigationBarTitle(viewModel.vo.name)
         .navigationBarTitleDisplayMode(.large)

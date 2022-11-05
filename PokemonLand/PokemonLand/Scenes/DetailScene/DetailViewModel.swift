@@ -2,23 +2,38 @@ import Foundation
 import Combine
 import PokemonServices
 
-struct DetailViewVo {
-    let imageUrl: URL?
-    let name: String
-}
 
 protocol DetailViewModelProtocol: ObservableObject {
-    var vo: DetailViewVo { get }
+    var vo: DetailViewModel.Vo { get }
+    func getData()
 }
 
 class DetailViewModel: DetailViewModelProtocol {
 
-    private var cancellables = Set<AnyCancellable>()
+    // MARK: - Public
+    @Published var vo: Vo = .init(imageUrl: nil, name: "")
 
-    @Published var vo: DetailViewVo
+    // MARK: - Dependencies
+    private let data: Pokemon
 
+    // MARK: - Init
     init(data: Pokemon) {
-        self.vo = DetailViewVo(imageUrl: data.image,
-                               name: data.name.capitalized)
+        self.data = data
+    }
+}
+
+// MARK: - DetailViewModelProtocol
+extension DetailViewModel {
+    func getData() {
+        self.composeVo(with: data)
+    }
+}
+
+// MARK: - Private
+private extension DetailViewModel {
+    func composeVo(with data: Pokemon) {
+        self.vo = Vo(imageUrl: data.image,
+                     name: data.name.capitalized)
+
     }
 }
