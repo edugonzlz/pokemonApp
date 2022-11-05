@@ -1,7 +1,11 @@
 import SwiftUI
 import Combine
 
-class PokemonLandAppViewModel: ObservableObject {
+protocol MainViewModelProtocol: ObservableObject {
+    var networkConnected: Bool { get }
+}
+
+class MainViewModel: MainViewModelProtocol {
 
     @Published var networkConnected: Bool = true
 

@@ -1,6 +1,9 @@
 import SwiftUI
 
-struct TabBar: View {
+struct MainView<M: MainViewModelProtocol>: View {
+
+    @ObservedObject var viewModel: M
+
     var body: some View {
         TabView {
             NavigationView {
@@ -18,11 +21,17 @@ struct TabBar: View {
                 Label("Favorites", systemImage: "star.fill")
             }
         }
-        .accentColor(.purple)
+        .accentColor(.cyan)
         .onAppear {
             UITabBar.appearance().backgroundImage = UIImage()
             UITabBar.appearance().isTranslucent = true
             UITabBar.appearance().backgroundColor = .white
+        }
+        .overlay(alignment: .bottom) {
+            if !viewModel.networkConnected {
+                ConnectionStatusView()
+                    .offset(y: -49)
+            }
         }
     }
 }
