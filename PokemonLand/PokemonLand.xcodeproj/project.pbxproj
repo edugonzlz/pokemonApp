@@ -31,6 +31,8 @@
 		F8CC153A2916526000EB4BE1 /* DetailVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CC15392916526000EB4BE1 /* DetailVo.swift */; };
 		F8D0A4FE2912AF45006AA418 /* PokemonServices in Frameworks */ = {isa = PBXBuildFile; productRef = F8D0A4FD2912AF45006AA418 /* PokemonServices */; };
 		F8D0A5102913BDC1006AA418 /* Userservices in Frameworks */ = {isa = PBXBuildFile; productRef = F8D0A50F2913BDC1006AA418 /* Userservices */; };
+		F8D8293A29170ECA009B703D /* Array+reordeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D8293929170ECA009B703D /* Array+reordeable.swift */; };
+		F8D8293C29170EEB009B703D /* Pokemon+reordeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D8293B29170EEB009B703D /* Pokemon+reordeable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		F8CC15392916526000EB4BE1 /* DetailVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVo.swift; sourceTree = "<group>"; };
 		F8D0A4F52912ABF1006AA418 /* PokemonServices */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PokemonServices; path = ../Modules/PokemonServices; sourceTree = "<group>"; };
 		F8D0A5092912B651006AA418 /* Userservices */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Userservices; path = ../Modules/Userservices; sourceTree = "<group>"; };
+		F8D8293929170ECA009B703D /* Array+reordeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+reordeable.swift"; sourceTree = "<group>"; };
+		F8D8293B29170EEB009B703D /* Pokemon+reordeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pokemon+reordeable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				F85AC61D274F8E6900BF930F /* View+extensions.swift */,
+				F8D8293929170ECA009B703D /* Array+reordeable.swift */,
+				F8D8293B29170EEB009B703D /* Pokemon+reordeable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -401,8 +407,10 @@
 			files = (
 				F8CC15382915492F00EB4BE1 /* UserManager.swift in Sources */,
 				F8CC152D2915317800EB4BE1 /* ReachabilityManager.swift in Sources */,
+				F8D8293C29170EEB009B703D /* Pokemon+reordeable.swift in Sources */,
 				F8CC1535291546D900EB4BE1 /* PokemonCell+Vo.swift in Sources */,
 				F8CC15232914051600EB4BE1 /* FavoritesListView.swift in Sources */,
+				F8D8293A29170ECA009B703D /* Array+reordeable.swift in Sources */,
 				F8367C8B274BA9A400480FD1 /* ListVo.swift in Sources */,
 				F8CC153A2916526000EB4BE1 /* DetailVo.swift in Sources */,
 				F8367C92274D3B8800480FD1 /* DetailView.swift in Sources */,

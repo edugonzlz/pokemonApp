@@ -46,7 +46,8 @@ extension FavoritesListViewModel {
 // MARK: - Private
 private extension FavoritesListViewModel {
     func getPokemons() {
-        let ids = userService.favoriteIds().map{ $0.id }
+        let favorites = userService.favoriteIds().sorted(by: { $0.timestamp > $1.timestamp })
+        let ids = favorites.map{ $0.id }
 
         var publishers = [AnyPublisher<Pokemon, Error>]()
         ids.forEach {
@@ -60,9 +61,10 @@ private extension FavoritesListViewModel {
             .receive(on: DispatchQueue.main)
             .sink { completion in
             } receiveValue: { data in
+                let pokemons = data.reorder(by: favorites.map {$0.id})
                 self.pokemons.removeAll()
                 self.vo.items.removeAll()
-                data.forEach { item in
+                pokemons.forEach { item in
                     self.pokemons[item.id] = item
                     self.vo.items.append(self.composeCellVo(with: item))
                 }

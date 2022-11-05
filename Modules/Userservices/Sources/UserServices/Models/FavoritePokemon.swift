@@ -2,7 +2,7 @@ import Foundation
 
 public struct FavoritePokemon: Codable {
     public let id: Int
-    let timestamp: Date
+    public let timestamp: Date
 
     public init(id: Int, timestamp: Date) {
         self.id = id
