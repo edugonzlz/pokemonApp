@@ -1,7 +1,8 @@
 import Foundation
 
-public extension Set {
-    func convertToData() -> Data? {
-        try? JSONSerialization.data(withJSONObject: Array(self), options: [])
+public extension Set where Element: Encodable {
+    func toData() -> Data? {
+        let encoder = JSONEncoder()
+        return try? encoder.encode(self)
     }
 }

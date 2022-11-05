@@ -4,9 +4,9 @@ import Combine
 
 public protocol UserServiceProtocol {
     func isFavorite(pokemonId: Int) -> Bool
-    @discardableResult func toggleFavorite(pokemonId: Int) -> Bool
-    func favoriteIds() -> Set<Int>
-    func favoritesPublisher() -> AnyPublisher<Set<Int>, Never>
+    @discardableResult func toggleFavorite(_ favorite: FavoritePokemon) -> Bool
+    func favoriteIds() -> Set<FavoritePokemon>
+    func favoritesPublisher() -> AnyPublisher<Set<FavoritePokemon>, Never>
 }
 
 public class UserService: UserServiceProtocol {
@@ -21,21 +21,21 @@ public class UserService: UserServiceProtocol {
         database.isFavorite(pokemonId: pokemonId)
     }
 
-    public func toggleFavorite(pokemonId: Int) -> Bool {
-        if database.favorites().contains(pokemonId) {
-            database.removeFavorite(pokemonId: pokemonId)
+    public func toggleFavorite(_ favorite: FavoritePokemon) -> Bool {
+        if database.isFavorite(pokemonId: favorite.id) {
+            database.removeFavorite(pokemonId: favorite.id)
             return false
         } else {
-            database.saveFavorite(pokemonId: pokemonId)
+            database.saveFavorite(favorite)
             return true
         }
     }
 
-    public func favoriteIds() -> Set<Int> {
+    public func favoriteIds() -> Set<FavoritePokemon> {
         database.favorites()
     }
 
-    public func favoritesPublisher() -> AnyPublisher<Set<Int>, Never> {
+    public func favoritesPublisher() -> AnyPublisher<Set<FavoritePokemon>, Never> {
         database.favoritesPublisher()
     }
 }

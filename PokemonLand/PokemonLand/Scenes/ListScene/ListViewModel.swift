@@ -163,7 +163,7 @@ private extension ListViewModel {
             .sink { favorites in
                 print("fav listened: \(favorites)")
                 self.vo.items.forEach { item in
-                    item.isFavorite = favorites.contains(item.id)
+                    item.isFavorite = favorites.map{ $0.id }.contains(item.id)
                 }
             }
             .store(in: &self.favoriteCancellables)

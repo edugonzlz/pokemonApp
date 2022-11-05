@@ -1,7 +1,8 @@
 import Foundation
 
 public extension Data {
-    func dataToArray<T>() -> Array<T>? {
-      (try? JSONSerialization.jsonObject(with: self, options: [])) as? Array<T>
+    func toSet<T: Decodable>() -> Set<T>? {
+        let decoder = JSONDecoder()
+        return try? decoder.decode(Set<T>.self, from: self)
     }
 }

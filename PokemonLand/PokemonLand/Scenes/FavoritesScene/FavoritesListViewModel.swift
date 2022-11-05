@@ -46,7 +46,7 @@ extension FavoritesListViewModel {
 // MARK: - Private
 private extension FavoritesListViewModel {
     func getPokemons() {
-        let ids = userService.favoriteIds()
+        let ids = userService.favoriteIds().map{ $0.id }
 
         var publishers = [AnyPublisher<Pokemon, Error>]()
         ids.forEach {
@@ -86,7 +86,7 @@ private extension FavoritesListViewModel {
             .sink { favorites in
                 self.getPokemons()
                 self.vo.items.forEach { item in
-                    item.isFavorite = favorites.contains(item.id)
+                    item.isFavorite = favorites.map{ $0.id }.contains(item.id)
                 }
             }
             .store(in: &self.cancellables)

@@ -18,7 +18,7 @@ class UserManager: UserManagerProtocol {
     }
 
     public func toggleFavorite(pokemon: Pokemon) -> Bool {
-        let isFavorite = userService.toggleFavorite(pokemonId: pokemon.id)
+        let isFavorite = userService.toggleFavorite(.init(id: pokemon.id, timestamp: Date.now))
         switch isFavorite {
         case true:
             pokemonService.save(pokemon: pokemon)

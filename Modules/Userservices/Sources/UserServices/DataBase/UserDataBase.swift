@@ -2,16 +2,16 @@ import Foundation
 import Combine
 
 public protocol UserDataBaseProtocol {
-    func favorites() -> Set<Int>
-    func favoritesPublisher() -> AnyPublisher<Set<Int>, Never>
+    func favorites() -> Set<FavoritePokemon>
+    func favoritesPublisher() -> AnyPublisher<Set<FavoritePokemon>, Never>
     func isFavorite(pokemonId: Int) -> Bool
-    func saveFavorite(pokemonId: Int)
+    func saveFavorite(_ favorite: FavoritePokemon)
     func removeFavorite(pokemonId: Int)
 }
 
 public class UserDataBase: UserDataBaseProtocol {
 
-    private let favoritesSubject = PassthroughSubject<Set<Int>, Never>()
+    private let favoritesSubject = PassthroughSubject<Set<FavoritePokemon>, Never>()
 
     public static let shared = UserDataBase()
 
@@ -20,39 +20,38 @@ public class UserDataBase: UserDataBaseProtocol {
 
 // MARK: - Favorites
 public extension UserDataBase {
-    func favorites() -> Set<Int> {
+    func favorites() -> Set<FavoritePokemon> {
         if let data = getData(key: Keys.favorites.rawValue),
-           let favorites: Array<Int> = data.dataToArray() {
-            return Set(favorites)
+           let favorites: Set<FavoritePokemon> = data.toSet() {
+            return favorites
         } else {
-            let emptySet: Set<Int> = Set([])
-            updateFavorites(data: emptySet.convertToData())
+            let emptySet = Set<FavoritePokemon>()
+            update(favorites: emptySet)
             return emptySet
         }
     }
 
-    func favoritesPublisher() -> AnyPublisher<Set<Int>, Never> {
+    func favoritesPublisher() -> AnyPublisher<Set<FavoritePokemon>, Never> {
         favoritesSubject.eraseToAnyPublisher()
     }
 
     func isFavorite(pokemonId: Int) -> Bool {
-        favorites().contains(pokemonId)
+        favorites().map{ $0.id }.contains(pokemonId)
     }
 
-    func saveFavorite(pokemonId: Int) {
+    func saveFavorite(_ favorite: FavoritePokemon) {
         var favorites = favorites()
-        favorites.insert(pokemonId)
-        updateFavorites(data: favorites.convertToData())
-        print("Favorites: \(favorites)")
+        favorites.insert(favorite)
+        update(favorites: favorites)
     }
 
     func removeFavorite(pokemonId: Int) {
         var favorites = favorites()
-        favorites.remove(pokemonId)
-        updateFavorites(data: favorites.convertToData())
-        print("Favorites: \(favorites)")
+        if let element = favorites.first(where: { $0.id == pokemonId }) {
+            favorites.remove(element)
+        }
+        update(favorites: favorites)
     }
-
 }
 
 // MARK: - Private
@@ -69,13 +68,12 @@ private extension UserDataBase {
         UserDefaults.standard.data(forKey: key)
     }
 
-    func updateFavorites(data: Data?) {
-        guard let data = data else {
+    func update(favorites: Set<FavoritePokemon>) {
+        print("Favorites: \(favorites)")
+        guard let data = favorites.toData() else {
             return
         }
         save(data: data, key: Keys.favorites.rawValue)
-        if let favorites: Array<Int> = data.dataToArray() {
-            favoritesSubject.send(Set(favorites))
-        }
+        favoritesSubject.send(favorites)
     }
 }
