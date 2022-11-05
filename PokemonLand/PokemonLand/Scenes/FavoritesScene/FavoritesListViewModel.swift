@@ -39,20 +39,15 @@ class FavoritesListViewModel: FavoritesListViewModelProtocol {
 // MARK: - FavoritesListViewModelProtocol
 extension FavoritesListViewModel {
     func getData() {
-        getPokemons()
+        getPokemons(favorites: userService.favoriteIds())
     }
 }
 
 // MARK: - Private
 private extension FavoritesListViewModel {
-    func getPokemons() {
-        let favorites = userService.favoriteIds().sorted(by: { $0.timestamp > $1.timestamp })
-        let ids = favorites.map{ $0.id }
-
-        var publishers = [AnyPublisher<Pokemon, Error>]()
-        ids.forEach {
-            publishers.append(service.getPokemon(id: $0))
-        }
+    func getPokemons(favorites: Set<FavoritePokemon>) {
+        let favorites = favorites.sorted(by: { $0.timestamp > $1.timestamp })
+        let publishers = favorites.map{ service.getPokemon(id: $0.id) }
 
         publishers
             .publisher
@@ -61,22 +56,23 @@ private extension FavoritesListViewModel {
             .receive(on: DispatchQueue.main)
             .sink { completion in
             } receiveValue: { data in
-                let pokemons = data.reorder(by: favorites.map {$0.id})
-                self.pokemons.removeAll()
-                self.vo.items.removeAll()
-                pokemons.forEach { item in
-                    self.pokemons[item.id] = item
-                    self.vo.items.append(self.composeCellVo(with: item))
+                let orderedData = data.reorder(by: favorites.map { $0.id })
+                self.vo.items = orderedData.map {
+                    self.composeCellVo(with: $0, isFavorite: orderedData.contains($0))
                 }
+                self.pokemons = orderedData.reduce(into: [Int: Pokemon](), { dict, pokemon in
+                    var dict = dict
+                    dict[pokemon.id] = pokemon
+                })
             }
             .store(in: &self.cancellables)
     }
 
-    func composeCellVo(with pokemon: Pokemon) -> PokemonCell.Vo {
+    func composeCellVo(with pokemon: Pokemon, isFavorite: Bool) -> PokemonCell.Vo {
         PokemonCell.Vo(id: pokemon.id,
                        name: pokemon.name.capitalized,
                        imageURL: pokemon.image,
-                       isFavorite: self.userService.isFavorite(pokemonId: pokemon.id),
+                       isFavorite: isFavorite,
                        favoriteButtonTapped: {[weak self] in
             self?.userManager.toggleFavorite(pokemon: pokemon)
         })
@@ -86,10 +82,7 @@ private extension FavoritesListViewModel {
         userService.favoritesPublisher()
             .receive(on: DispatchQueue.main)
             .sink { favorites in
-                self.getPokemons()
-                self.vo.items.forEach { item in
-                    item.isFavorite = favorites.map{ $0.id }.contains(item.id)
-                }
+                self.getPokemons(favorites: favorites)
             }
             .store(in: &self.cancellables)
     }

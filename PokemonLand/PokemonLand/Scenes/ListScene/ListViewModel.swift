@@ -72,14 +72,14 @@ extension ListViewModel {
         switch searchText.count {
         case 0:
             searching = false
-            reset()
+            resetLocalData()
             getNextDetailsPage(resources: resources)
         case 1...2:
             searching = false
-            reset()
+            resetLocalData()
         default:
             searching = true
-            reset()
+            resetLocalData()
             search(text: searchText)
         }
     }
@@ -161,7 +161,6 @@ private extension ListViewModel {
         userService.favoritesPublisher()
             .receive(on: DispatchQueue.main)
             .sink { favorites in
-                print("fav listened: \(favorites)")
                 self.vo.items.forEach { item in
                     item.isFavorite = favorites.map{ $0.id }.contains(item.id)
                 }
@@ -170,16 +169,14 @@ private extension ListViewModel {
     }
 
     func search(text: String) {
-        let publishers: [AnyPublisher<Pokemon, Error>] = resources
+        let publishers = resources
             .filter({ $0.name.lowercased().contains(self.searchText.lowercased())})
-            .map {
-                service.getPokemon(name: $0.name)
-            }
+            .map{ service.getPokemon(name: $0.name) }
 
         getDetails(publishers: publishers)
     }
 
-    func reset() {
+    func resetLocalData() {
         pokemons.removeAll()
         vo.items.removeAll()
         cancellables.removeAll()
