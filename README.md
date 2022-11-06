@@ -1,6 +1,8 @@
 # Pokemon App
 
-## This app present some concepts about iOS app architecture and modularization.
+Pokemon app present some concepts about iOS app architecture and modularization.
+
+## App features:
 
 - App.xcworkspace contains two different projects and have some services modularized. The concept is about handle some different apps thats make use of same services or UI components.
 - Both use pokeapi.co API to present info about Pokemons
