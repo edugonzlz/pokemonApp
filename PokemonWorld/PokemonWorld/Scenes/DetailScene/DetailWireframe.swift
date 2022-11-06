@@ -2,7 +2,7 @@ import UIKit
 import PokemonServices
 
 protocol DetailWireframeType {
-    mutating func setup(pokemon: Pokemon) -> UIViewController
+    func setup(pokemon: Pokemon) -> UIViewController
 }
 
 class DetailWireframe: DetailWireframeType {

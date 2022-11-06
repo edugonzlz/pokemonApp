@@ -36,16 +36,6 @@
 		F8D1233F2739590E007FC2D7 /* UIView+loadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D1233E2739590E007FC2D7 /* UIView+loadingView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		F88A64ED273552B5004B12AB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F88A64CE273552B4004B12AB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F88A64D5273552B4004B12AB;
-			remoteInfo = PokemonWorld;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		F834418D2745185900E90EAD /* Staging.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		F834418E2745185900E90EAD /* Production.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
@@ -65,7 +55,6 @@
 		F88A64D9273552B4004B12AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F88A64E5273552B5004B12AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F88A64E7273552B5004B12AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F88A64EC273552B5004B12AB /* PokemonWorldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonWorldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8AA8F35273ADBA4003A47A4 /* PokemonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCollectionViewCell.swift; sourceTree = "<group>"; };
 		F8AA8F36273ADBA4003A47A4 /* PokemonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonCollectionViewCell.xib; sourceTree = "<group>"; };
 		F8B6C0CA273942F400191204 /* ListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
@@ -85,13 +74,6 @@
 			files = (
 				F8D0A5032912B343006AA418 /* PokemonServices in Frameworks */,
 				F8AA8F3B273ADDAB003A47A4 /* Kingfisher in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F88A64E9273552B5004B12AB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,7 +154,6 @@
 			children = (
 				F8D0A4EB2912A93E006AA418 /* Packages */,
 				F88A64D8273552B4004B12AB /* PokemonWorld */,
-				F88A64EF273552B5004B12AB /* PokemonWorldTests */,
 				F88A64D7273552B4004B12AB /* Products */,
 				F8D0A5012912B343006AA418 /* Frameworks */,
 			);
@@ -182,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				F88A64D6273552B4004B12AB /* PokemonWorld.app */,
-				F88A64EC273552B5004B12AB /* PokemonWorldTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,13 +178,6 @@
 				F8B6C100273946F900191204 /* Resources */,
 			);
 			path = PokemonWorld;
-			sourceTree = "<group>";
-		};
-		F88A64EF273552B5004B12AB /* PokemonWorldTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PokemonWorldTests;
 			sourceTree = "<group>";
 		};
 		F8B6C0C9273942E100191204 /* ListScene */ = {
@@ -277,24 +250,6 @@
 			productReference = F88A64D6273552B4004B12AB /* PokemonWorld.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F88A64EB273552B5004B12AB /* PokemonWorldTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F88A6503273552B5004B12AB /* Build configuration list for PBXNativeTarget "PokemonWorldTests" */;
-			buildPhases = (
-				F88A64E8273552B5004B12AB /* Sources */,
-				F88A64E9273552B5004B12AB /* Frameworks */,
-				F88A64EA273552B5004B12AB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F88A64EE273552B5004B12AB /* PBXTargetDependency */,
-			);
-			name = PokemonWorldTests;
-			productName = PokemonWorldTests;
-			productReference = F88A64EC273552B5004B12AB /* PokemonWorldTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -307,10 +262,6 @@
 				TargetAttributes = {
 					F88A64D5273552B4004B12AB = {
 						CreatedOnToolsVersion = 13.1;
-					};
-					F88A64EB273552B5004B12AB = {
-						CreatedOnToolsVersion = 13.1;
-						TestTargetID = F88A64D5273552B4004B12AB;
 					};
 				};
 			};
@@ -331,7 +282,6 @@
 			projectRoot = "";
 			targets = (
 				F88A64D5273552B4004B12AB /* PokemonWorld */,
-				F88A64EB273552B5004B12AB /* PokemonWorldTests */,
 			);
 		};
 /* End PBXProject section */
@@ -349,13 +299,6 @@
 				F834418F2745185900E90EAD /* Staging.xcconfig in Resources */,
 				F8B6C0D3273942F500191204 /* ListViewController.xib in Resources */,
 				F8CA643C273AF75A00E4DDFA /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F88A64EA273552B5004B12AB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,22 +329,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F88A64E8273552B5004B12AB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F88A64EE273552B5004B12AB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F88A64D5273552B4004B12AB /* PokemonWorld */;
-			targetProxy = F88A64ED273552B5004B12AB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F88A64E4273552B5004B12AB /* LaunchScreen.storyboard */ = {
@@ -505,31 +433,6 @@
 			};
 			name = "Debug - Production";
 		};
-		F83441932745189F00E90EAD /* Debug - Production */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LS8HYFSC3B;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.edugonzlz.PokemonWorldTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokemonWorld.app/PokemonWorld";
-			};
-			name = "Debug - Production";
-		};
 		F8344195274518C700E90EAD /* Release - Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -611,31 +514,6 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = "Release - Staging";
-		};
-		F8344197274518C700E90EAD /* Release - Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LS8HYFSC3B;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.edugonzlz.PokemonWorldTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokemonWorld.app/PokemonWorld";
 			};
 			name = "Release - Staging";
 		};
@@ -813,56 +691,6 @@
 			};
 			name = "Release - Production";
 		};
-		F88A6504273552B5004B12AB /* Debug - Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LS8HYFSC3B;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.edugonzlz.PokemonWorldTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokemonWorld.app/PokemonWorld";
-			};
-			name = "Debug - Staging";
-		};
-		F88A6505273552B5004B12AB /* Release - Production */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LS8HYFSC3B;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.edugonzlz.PokemonWorldTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokemonWorld.app/PokemonWorld";
-			};
-			name = "Release - Production";
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -884,17 +712,6 @@
 				F83441922745189F00E90EAD /* Debug - Production */,
 				F88A6502273552B5004B12AB /* Release - Production */,
 				F8344196274518C700E90EAD /* Release - Staging */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Debug - Staging";
-		};
-		F88A6503273552B5004B12AB /* Build configuration list for PBXNativeTarget "PokemonWorldTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F88A6504273552B5004B12AB /* Debug - Staging */,
-				F83441932745189F00E90EAD /* Debug - Production */,
-				F88A6505273552B5004B12AB /* Release - Production */,
-				F8344197274518C700E90EAD /* Release - Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Debug - Staging";

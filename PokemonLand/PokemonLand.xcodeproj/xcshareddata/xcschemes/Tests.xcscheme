@@ -16,16 +16,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F88A65632735530B004B12AB"
-               BuildableName = "PokemonLandTests.xctest"
-               BlueprintName = "PokemonLandTests"
-               ReferencedContainer = "container:PokemonLand.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "PokemonServicesTests"
                BuildableName = "PokemonServicesTests"
                BlueprintName = "PokemonServicesTests"
@@ -40,16 +30,6 @@
                BuildableName = "UserservicesTests"
                BlueprintName = "UserservicesTests"
                ReferencedContainer = "container:../Modules/Userservices">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F88A64EB273552B5004B12AB"
-               BuildableName = "PokemonWorldTests.xctest"
-               BlueprintName = "PokemonWorldTests"
-               ReferencedContainer = "container:../PokemonWorld/PokemonWorld.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

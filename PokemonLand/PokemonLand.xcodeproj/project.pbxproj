@@ -35,16 +35,6 @@
 		F8D8293C29170EEB009B703D /* Pokemon+reordeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D8293B29170EEB009B703D /* Pokemon+reordeable.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		F88A65652735530B004B12AB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F88A654C2735530A004B12AB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F88A65532735530A004B12AB;
-			remoteInfo = PokemonLand;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		F8367C83274BA28E00480FD1 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		F8367C86274BA3D900480FD1 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
@@ -59,7 +49,6 @@
 		F88A65572735530A004B12AB /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		F88A655B2735530A004B12AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F88A655E2735530A004B12AB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		F88A65642735530B004B12AB /* PokemonLandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonLandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89B7C6D2912982900E5B13D /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Modules/PokemonServices/Package.swift; sourceTree = "<group>"; };
 		F8A77C7F27358CF1006755BF /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		F8A77C8027358CFE006755BF /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
@@ -87,13 +76,6 @@
 				F8367C8E274BB94900480FD1 /* Kingfisher in Frameworks */,
 				F8D0A5102913BDC1006AA418 /* Userservices in Frameworks */,
 				F8D0A4FE2912AF45006AA418 /* PokemonServices in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F88A65612735530B004B12AB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				F88A65542735530A004B12AB /* PokemonLand.app */,
-				F88A65642735530B004B12AB /* PokemonLandTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -314,24 +295,6 @@
 			productReference = F88A65542735530A004B12AB /* PokemonLand.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F88A65632735530B004B12AB /* PokemonLandTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F88A657B2735530B004B12AB /* Build configuration list for PBXNativeTarget "PokemonLandTests" */;
-			buildPhases = (
-				F88A65602735530B004B12AB /* Sources */,
-				F88A65612735530B004B12AB /* Frameworks */,
-				F88A65622735530B004B12AB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F88A65662735530B004B12AB /* PBXTargetDependency */,
-			);
-			name = PokemonLandTests;
-			productName = PokemonLandTests;
-			productReference = F88A65642735530B004B12AB /* PokemonLandTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -344,10 +307,6 @@
 				TargetAttributes = {
 					F88A65532735530A004B12AB = {
 						CreatedOnToolsVersion = 13.1;
-					};
-					F88A65632735530B004B12AB = {
-						CreatedOnToolsVersion = 13.1;
-						TestTargetID = F88A65532735530A004B12AB;
 					};
 				};
 			};
@@ -368,7 +327,6 @@
 			projectRoot = "";
 			targets = (
 				F88A65532735530A004B12AB /* PokemonLand */,
-				F88A65632735530B004B12AB /* PokemonLandTests */,
 			);
 		};
 /* End PBXProject section */
@@ -380,13 +338,6 @@
 			files = (
 				F88A655F2735530A004B12AB /* Preview Assets.xcassets in Resources */,
 				F88A655C2735530A004B12AB /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F88A65622735530B004B12AB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,22 +372,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F88A65602735530B004B12AB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F88A65662735530B004B12AB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F88A65532735530A004B12AB /* PokemonLand */;
-			targetProxy = F88A65652735530B004B12AB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		F834419927451CAD00E90EAD /* Debug - Production */ = {
@@ -534,31 +470,6 @@
 			};
 			name = "Debug - Production";
 		};
-		F834419B27451CAD00E90EAD /* Debug - Production */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LS8HYFSC3B;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.edugonzlz.PokemonLandTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokemonLand.app/PokemonLand";
-			};
-			name = "Debug - Production";
-		};
 		F834419D27451CB600E90EAD /* Release - Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -645,31 +556,6 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = "Release - Production";
-		};
-		F834419F27451CB600E90EAD /* Release - Production */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LS8HYFSC3B;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.edugonzlz.PokemonLandTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokemonLand.app/PokemonLand";
 			};
 			name = "Release - Production";
 		};
@@ -857,56 +743,6 @@
 			};
 			name = "Release - Staging";
 		};
-		F88A657C2735530B004B12AB /* Debug - Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LS8HYFSC3B;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.edugonzlz.PokemonLandTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokemonLand.app/PokemonLand";
-			};
-			name = "Debug - Staging";
-		};
-		F88A657D2735530B004B12AB /* Release - Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LS8HYFSC3B;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.edugonzlz.PokemonLandTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokemonLand.app/PokemonLand";
-			};
-			name = "Release - Staging";
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -928,17 +764,6 @@
 				F834419A27451CAD00E90EAD /* Debug - Production */,
 				F88A657A2735530B004B12AB /* Release - Staging */,
 				F834419E27451CB600E90EAD /* Release - Production */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Debug - Staging";
-		};
-		F88A657B2735530B004B12AB /* Build configuration list for PBXNativeTarget "PokemonLandTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F88A657C2735530B004B12AB /* Debug - Staging */,
-				F834419B27451CAD00E90EAD /* Debug - Production */,
-				F88A657D2735530B004B12AB /* Release - Staging */,
-				F834419F27451CB600E90EAD /* Release - Production */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Debug - Staging";

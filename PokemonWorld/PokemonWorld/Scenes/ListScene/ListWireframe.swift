@@ -2,7 +2,7 @@ import UIKit
 import PokemonServices
 
 protocol ListWireframeType {
-    mutating func setup() -> UIViewController
+    func setup() -> UIViewController
     func navigateTo(detail: Pokemon)
 }
 
