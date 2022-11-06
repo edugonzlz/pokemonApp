@@ -178,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				F88A65562735530A004B12AB /* PokemonLand */,
-				F88A65672735530B004B12AB /* PokemonLandTests */,
 				F89B7C6E291298E900E5B13D /* Packages */,
 				F88A65552735530A004B12AB /* Products */,
 				61BF06CC58E0E0A16E945329 /* Frameworks */,
@@ -216,13 +215,6 @@
 				F88A655E2735530A004B12AB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		F88A65672735530B004B12AB /* PokemonLandTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PokemonLandTests;
 			sourceTree = "<group>";
 		};
 		F89A3AEB2916E66500FC5303 /* MainScene */ = {

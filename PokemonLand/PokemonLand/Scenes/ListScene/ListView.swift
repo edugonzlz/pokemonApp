@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ListView<M: ListViewModelProtocol>: View {
     
-    @ObservedObject var viewModel: M
+    @StateObject var viewModel: M
     
     var body: some View {
         GeometryReader { proxy in

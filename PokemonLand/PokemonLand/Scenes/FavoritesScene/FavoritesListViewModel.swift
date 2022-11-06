@@ -61,7 +61,6 @@ private extension FavoritesListViewModel {
                     self.composeCellVo(with: $0, isFavorite: orderedData.contains($0))
                 }
                 self.pokemons = orderedData.reduce(into: [Int: Pokemon](), { dict, pokemon in
-                    var dict = dict
                     dict[pokemon.id] = pokemon
                 })
             }

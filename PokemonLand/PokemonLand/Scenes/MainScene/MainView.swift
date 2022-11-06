@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MainView<M: MainViewModelProtocol>: View {
 
-    @ObservedObject var viewModel: M
+    @StateObject var viewModel: M
 
     var body: some View {
         TabView {
