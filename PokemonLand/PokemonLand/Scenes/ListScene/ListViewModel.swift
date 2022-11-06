@@ -7,12 +7,11 @@ import SwiftUI
 protocol ListViewModelProtocol: ObservableObject {
     var vo: ListViewModel.ListVo { get }
     var isLoading: Bool { get }
-    var searchText: String { get }
+    var searchText: String { get set }
     var pokemons: [Int: Pokemon] { get }
 
     func getData()
     func loadMoreRows(pokemonName: String)
-    func listen(searchText: String)
 }
 
 class ListViewModel: ListViewModelProtocol {
@@ -31,6 +30,7 @@ class ListViewModel: ListViewModelProtocol {
     // MARK: - Cancellables
     private var cancellables = Set<AnyCancellable>()
     private var favoriteCancellables = Set<AnyCancellable>()
+    private var searchCancellables = Set<AnyCancellable>()
 
     // MARK: - Local variables
     private var resources = [PokemonResource]()
@@ -45,6 +45,7 @@ class ListViewModel: ListViewModelProtocol {
         self.userManager = userManager
 
         listenFavorites()
+        listenSearch()
     }
 }
 
@@ -64,24 +65,6 @@ extension ListViewModel {
             return
         }
         getNextDetailsPage(resources: resources)
-    }
-
-    func listen(searchText: String) {
-        self.searchText = searchText
-
-        switch searchText.count {
-        case 0:
-            searching = false
-            resetLocalData()
-            getNextDetailsPage(resources: resources)
-        case 1...2:
-            searching = false
-            resetLocalData()
-        default:
-            searching = true
-            resetLocalData()
-            search(text: searchText)
-        }
     }
 }
 
@@ -166,6 +149,32 @@ private extension ListViewModel {
                 }
             }
             .store(in: &self.favoriteCancellables)
+    }
+
+    func listenSearch() {
+        $searchText
+            .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
+            .removeDuplicates()
+            .map { text -> String? in
+                self.searching = false
+                self.resetLocalData()
+                switch text.count {
+                case 0:
+                    self.getNextDetailsPage(resources: self.resources)
+                    return nil
+                case 1...2:
+                    return nil
+                default:
+                    return text
+                }
+            }
+            .compactMap{ $0 }
+            .sink { _ in
+            } receiveValue: { [weak self] text in
+                self?.searching = true
+                self?.search(text: text)
+            }
+            .store(in: &searchCancellables)
     }
 
     func search(text: String) {
