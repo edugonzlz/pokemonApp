@@ -17,6 +17,7 @@ struct MainView<M: MainViewModelProtocol>: View {
             NavigationView {
                 FavoritesListView(viewModel: FavoritesListViewModel())
             }
+            .configureNavigationForDevices()
             .tabItem {
                 Label("Favorites", systemImage: "star.fill")
             }
