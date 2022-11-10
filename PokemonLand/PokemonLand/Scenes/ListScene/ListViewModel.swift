@@ -153,6 +153,7 @@ private extension ListViewModel {
 
     func listenSearch() {
         $searchText
+            .dropFirst()
             .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
             .removeDuplicates()
             .map { text -> String? in
