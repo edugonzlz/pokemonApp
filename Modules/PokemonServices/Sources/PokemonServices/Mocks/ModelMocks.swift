@@ -1,5 +1,3 @@
-@testable import PokemonServices
-
 extension Pokemon {
     static func valid() -> Pokemon {
         return Pokemon(id: 0, name: "test", order: 0, weight: nil, height: nil, sprites: nil)
