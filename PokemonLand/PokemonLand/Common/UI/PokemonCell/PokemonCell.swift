@@ -19,9 +19,8 @@ struct PokemonCell: View {
 
             KFImage(vo.imageURL)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
-                .padding(EdgeInsets(top: 0, leading: Constants.padding,
-                                    bottom: 0, trailing: Constants.padding))
+                .scaledToFit()
+                .frame(height: Constants.imageHeiht)
                 .shadow(radius: Constants.radius)
             
             Text(vo.name)
@@ -43,6 +42,7 @@ private extension PokemonCell {
     struct Constants {
         static let padding: CGFloat = 10
         static let radius: CGFloat = 10
+        static let imageHeiht: CGFloat = 140
     }
 }
 
