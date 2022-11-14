@@ -11,17 +11,14 @@ struct ListView<M: ListViewModelProtocol>: View {
                           spacing: Constants.margin) {
                     
                     ForEach(viewModel.vo.items) { item in
-                        NavigationLink {
-                            if let pokemon = viewModel.pokemons[item.id] {
-                                DetailView(viewModel: DetailViewModel(data: pokemon)) }
+                        NavigationLink(value: item) {
+                            PokemonCell(vo: item)
+                                .onAppear {
+                                    self.viewModel.loadMoreRows(pokemonName: item.name)
+                                }
                         }
-                    label: {
-                        PokemonCell(vo: item)
-                            .onAppear {
-                                self.viewModel.loadMoreRows(pokemonName: item.name)
-                            }}
                     }
-                    
+
                 }.onAppear {
                     self.viewModel.getData()
                     
@@ -33,10 +30,15 @@ struct ListView<M: ListViewModelProtocol>: View {
                     ProgressView()
                 }
             }
-            .searchable(text: $viewModel.searchText)
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarTitle("Pokemon Land (\(viewModel.vo.items.count) - \(viewModel.vo.totalItems))")
         }
+        .navigationDestination(for: PokemonCell.Vo.self) { item in
+            if let pokemon = viewModel.pokemons[item.id] {
+                DetailView(viewModel: DetailViewModel(data: pokemon))
+            }
+        }
+        .searchable(text: $viewModel.searchText)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitle("Pokemon Land (\(viewModel.vo.items.count) - \(viewModel.vo.totalItems))")
     }
 }
 

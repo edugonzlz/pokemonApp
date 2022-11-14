@@ -11,11 +11,9 @@ struct FavoritesListView<M: FavoritesListViewModelProtocol>: View {
                           spacing: Constants.margin) {
 
                     ForEach(viewModel.vo.items) { item in
-                        NavigationLink {
-                            if let pokemon = viewModel.pokemons[item.id] {
-                                DetailView(viewModel: DetailViewModel(data: pokemon)) }
+                        NavigationLink(value: item) {
+                            PokemonCell(vo: item)
                         }
-                    label: { PokemonCell(vo: item) }
                     }
 
                 }.onAppear {
@@ -24,9 +22,14 @@ struct FavoritesListView<M: FavoritesListViewModelProtocol>: View {
                 }.padding(EdgeInsets(top: 0, leading: Constants.margin,
                                      bottom: 0, trailing: Constants.margin))
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarTitle("Favorites")
         }
+        .navigationDestination(for: PokemonCell.Vo.self) { item in
+            if let pokemon = viewModel.pokemons[item.id] {
+                DetailView(viewModel: DetailViewModel(data: pokemon))
+            }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitle("Favorites")
     }
 }
 

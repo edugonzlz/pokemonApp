@@ -6,7 +6,7 @@ struct MainView<M: MainViewModelProtocol>: View {
 
     var body: some View {
         TabView {
-            NavigationView {
+            NavigationStack {
                 ListView(viewModel: ListViewModel())
             }
             .configureNavigationForDevices()
@@ -14,7 +14,7 @@ struct MainView<M: MainViewModelProtocol>: View {
                 Label("Pokemons", systemImage: "smallcircle.circle.fill")
             }
 
-            NavigationView {
+            NavigationStack {
                 FavoritesListView(viewModel: FavoritesListViewModel())
             }
             .configureNavigationForDevices()
