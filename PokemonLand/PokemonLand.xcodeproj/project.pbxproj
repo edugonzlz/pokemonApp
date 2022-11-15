@@ -19,6 +19,7 @@
 		F88A65582735530A004B12AB /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88A65572735530A004B12AB /* App.swift */; };
 		F88A655C2735530A004B12AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F88A655B2735530A004B12AB /* Assets.xcassets */; };
 		F88A655F2735530A004B12AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F88A655E2735530A004B12AB /* Preview Assets.xcassets */; };
+		F8B4A8E72923A32C006F21EF /* VerticalCardGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B4A8E62923A32C006F21EF /* VerticalCardGrid.swift */; };
 		F8CC15232914051600EB4BE1 /* FavoritesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CC15222914051600EB4BE1 /* FavoritesListView.swift */; };
 		F8CC15272914060900EB4BE1 /* FavoritesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CC15262914060900EB4BE1 /* FavoritesListViewModel.swift */; };
 		F8CC152A291406F800EB4BE1 /* FavoritesListVo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CC1529291406F800EB4BE1 /* FavoritesListVo.swift */; };
@@ -52,6 +53,7 @@
 		F89B7C6D2912982900E5B13D /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Modules/PokemonServices/Package.swift; sourceTree = "<group>"; };
 		F8A77C7F27358CF1006755BF /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		F8A77C8027358CFE006755BF /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		F8B4A8E62923A32C006F21EF /* VerticalCardGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCardGrid.swift; sourceTree = "<group>"; };
 		F8CC15222914051600EB4BE1 /* FavoritesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListView.swift; sourceTree = "<group>"; };
 		F8CC15262914060900EB4BE1 /* FavoritesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListViewModel.swift; sourceTree = "<group>"; };
 		F8CC1529291406F800EB4BE1 /* FavoritesListVo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVo.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 			children = (
 				F8CC15362915470600EB4BE1 /* PokemonCell */,
 				F8CC153029153BB800EB4BE1 /* ConnectionStatusView.swift */,
+				F8B4A8E62923A32C006F21EF /* VerticalCardGrid.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				F8D8293C29170EEB009B703D /* Pokemon+reordeable.swift in Sources */,
 				F8CC1535291546D900EB4BE1 /* PokemonCell+Vo.swift in Sources */,
 				F8CC15232914051600EB4BE1 /* FavoritesListView.swift in Sources */,
+				F8B4A8E72923A32C006F21EF /* VerticalCardGrid.swift in Sources */,
 				F8D8293A29170ECA009B703D /* Array+reordeable.swift in Sources */,
 				F8367C8B274BA9A400480FD1 /* ListVo.swift in Sources */,
 				F8CC153A2916526000EB4BE1 /* DetailVo.swift in Sources */,
