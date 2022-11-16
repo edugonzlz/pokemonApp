@@ -37,7 +37,7 @@ class ListViewModel: ListViewModelProtocol {
     private var searching = false
 
     // MARK: - Init
-    init(service: PokemonServiceProtocol = PokemonService<PokemonCache>(),
+    init(service: PokemonServiceProtocol = PokemonService(),
          userService: UserServiceProtocol = UserService(),
          userManager: UserManagerProtocol = UserManager()) {
         self.service = service

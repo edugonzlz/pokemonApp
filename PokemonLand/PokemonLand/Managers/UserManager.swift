@@ -12,7 +12,7 @@ class UserManager: UserManagerProtocol {
     private let pokemonService: PokemonServiceProtocol
 
     public init(service: UserServiceProtocol = UserService(),
-                pokemonService: PokemonServiceProtocol = PokemonService<PokemonCache>()) {
+                pokemonService: PokemonServiceProtocol = PokemonService()) {
         self.userService = service
         self.pokemonService = pokemonService
     }

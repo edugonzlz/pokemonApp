@@ -11,14 +11,14 @@ public protocol PokemonServiceProtocol {
     func getPokemon(name: String) -> AnyPublisher<Pokemon, Error>
 }
 
-public class PokemonService<Cache: PokemonCacheProtocol>: PokemonServiceProtocol {
+public class PokemonService: PokemonServiceProtocol {
 
     private let apiClient: ApiClientProtocol
-    private let cache: Cache
+    private let cache: any PokemonCacheProtocol
     private let dataBase: PokemonDataBaseProtocol
 
     public init(apiClient: ApiClientProtocol = ApiClient(),
-                cache: Cache = PokemonCache() as! Cache,
+                cache: any PokemonCacheProtocol = PokemonCache(),
                 dataBase: PokemonDataBaseProtocol = PokemonDataBase.shared) {
         self.apiClient = apiClient
         self.cache = cache
