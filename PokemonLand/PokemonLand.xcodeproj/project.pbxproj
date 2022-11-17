@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F8050511292637CD00B529A5 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8050510292637CD00B529A5 /* Route.swift */; };
+		F80505132926386A00B529A5 /* MainStacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80505122926386A00B529A5 /* MainStacks.swift */; };
+		F80505152926434D00B529A5 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80505142926434D00B529A5 /* TabItem.swift */; };
 		F8367C84274BA28E00480FD1 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8367C83274BA28E00480FD1 /* ListView.swift */; };
 		F8367C87274BA3DA00480FD1 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8367C86274BA3D900480FD1 /* ListViewModel.swift */; };
 		F8367C89274BA8CA00480FD1 /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8367C88274BA8CA00480FD1 /* PokemonCell.swift */; };
@@ -37,6 +40,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F8050510292637CD00B529A5 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		F80505122926386A00B529A5 /* MainStacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStacks.swift; sourceTree = "<group>"; };
+		F80505142926434D00B529A5 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
 		F8367C83274BA28E00480FD1 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		F8367C86274BA3D900480FD1 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		F8367C88274BA8CA00480FD1 /* PokemonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
@@ -150,6 +156,8 @@
 		F85AC61F274F8E8A00BF930F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F80505142926434D00B529A5 /* TabItem.swift */,
+				F8050510292637CD00B529A5 /* Route.swift */,
 				F89A3AEB2916E66500FC5303 /* MainScene */,
 				F8CC15212914050200EB4BE1 /* FavoritesScene */,
 				F8367C85274BA3CB00480FD1 /* ListScene */,
@@ -205,6 +213,7 @@
 			children = (
 				F8CC153229153DD100EB4BE1 /* MainViewModel.swift */,
 				F8CC152E29153B9900EB4BE1 /* MainView.swift */,
+				F80505122926386A00B529A5 /* MainStacks.swift */,
 			);
 			path = MainScene;
 			sourceTree = "<group>";
@@ -360,8 +369,11 @@
 				F8D8293A29170ECA009B703D /* Array+reordeable.swift in Sources */,
 				F8367C8B274BA9A400480FD1 /* ListVo.swift in Sources */,
 				F8CC153A2916526000EB4BE1 /* DetailVo.swift in Sources */,
+				F80505132926386A00B529A5 /* MainStacks.swift in Sources */,
+				F8050511292637CD00B529A5 /* Route.swift in Sources */,
 				F8367C92274D3B8800480FD1 /* DetailView.swift in Sources */,
 				F8CC153129153BB800EB4BE1 /* ConnectionStatusView.swift in Sources */,
+				F80505152926434D00B529A5 /* TabItem.swift in Sources */,
 				F8367C94274D3BF200480FD1 /* DetailViewModel.swift in Sources */,
 				F8CC152A291406F800EB4BE1 /* FavoritesListVo.swift in Sources */,
 				F85AC61A274E84EF00BF930F /* Mocks.swift in Sources */,

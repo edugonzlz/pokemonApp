@@ -7,8 +7,10 @@ struct FavoritesListView<M: FavoritesListViewModelProtocol>: View {
     var body: some View {
         VerticalCardGrid {
             ForEach(viewModel.vo.items) { item in
-                NavigationLink(value: item) {
-                    PokemonCell(vo: item)
+                if let pokemon = viewModel.pokemons[item.id] {
+                    NavigationLink(value: Route.detail(pokemon)) {
+                        PokemonCell(vo: item)
+                    }
                 }
             }
         }
@@ -16,8 +18,9 @@ struct FavoritesListView<M: FavoritesListViewModelProtocol>: View {
             self.viewModel.getData()
 
         }
-        .navigationDestination(for: PokemonCell.Vo.self) { item in
-            if let pokemon = viewModel.pokemons[item.id] {
+        .navigationDestination(for: Route.self) { route in
+            switch route {
+            case .detail(let pokemon):
                 DetailView(viewModel: DetailViewModel(data: pokemon))
             }
         }

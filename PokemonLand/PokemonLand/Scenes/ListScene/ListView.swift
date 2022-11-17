@@ -6,18 +6,19 @@ struct ListView<M: ListViewModelProtocol>: View {
     
     var body: some View {
         VStack {
-
             VerticalCardGrid {
                 ForEach(viewModel.vo.items) { item in
-                    NavigationLink(value: item) {
-                        PokemonCell(vo: item)
-                            .onAppear {
-                                self.viewModel.loadMoreRows(pokemonName: item.name)
-                            }
+                    if let pokemon = viewModel.pokemons[item.id] {
+                        NavigationLink(value: Route.detail(pokemon)) {
+                            PokemonCell(vo: item)
+                                .onAppear {
+                                    self.viewModel.loadMoreRows(pokemonName: item.name)
+                                }
+                        }
                     }
                 }
             }
-
+            
             if viewModel.isLoading {
                 Spacer(minLength: 20)
                 ProgressView()
@@ -26,8 +27,9 @@ struct ListView<M: ListViewModelProtocol>: View {
         .onAppear {
             self.viewModel.getData()
         }
-        .navigationDestination(for: PokemonCell.Vo.self) { item in
-            if let pokemon = viewModel.pokemons[item.id] {
+        .navigationDestination(for: Route.self) { route in
+            switch route {
+            case .detail(let pokemon):
                 DetailView(viewModel: DetailViewModel(data: pokemon))
             }
         }

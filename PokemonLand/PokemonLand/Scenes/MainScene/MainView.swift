@@ -6,27 +6,18 @@ struct MainView<M: MainViewModelProtocol>: View {
 
     var body: some View {
         TabView {
-            NavigationStack {
-                ListView(viewModel: ListViewModel())
-            }
-            .configureNavigationForDevices()
-            .tabItem {
-                Label("Pokemons", systemImage: "smallcircle.circle.fill")
-            }
-
-            NavigationStack {
-                FavoritesListView(viewModel: FavoritesListViewModel())
-            }
-            .configureNavigationForDevices()
-            .tabItem {
-                Label("Favorites", systemImage: "star.fill")
+            ForEach(viewModel.tabItems) { item in
+                viewModel.getView(for: item)
+                    .tabItem {
+                        Label(item.kind.name, systemImage: item.kind.image)
+                    }
+                    .configureNavigationForDevices()
             }
         }
         .accentColor(.cyan)
         .onAppear {
-            UITabBar.appearance().backgroundImage = UIImage()
-            UITabBar.appearance().isTranslucent = true
-            UITabBar.appearance().backgroundColor = .white
+            viewModel.setup()
+            configureTabBar()
         }
         .overlay(alignment: .bottom) {
             if !viewModel.networkConnected {
@@ -34,5 +25,14 @@ struct MainView<M: MainViewModelProtocol>: View {
                     .offset(y: -49)
             }
         }
+    }
+}
+
+// MARK: - Private
+private extension MainView {
+    func configureTabBar() {
+        UITabBar.appearance().backgroundImage = UIImage()
+        UITabBar.appearance().isTranslucent = true
+        UITabBar.appearance().backgroundColor = .white
     }
 }

@@ -1,5 +1,3 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-#include "../../../Pods/Target Support Files/Pods-PokemonLand/Pods-PokemonLand.debug - production.xcconfig"
-#include "../../../Pods/Target Support Files/Pods-PokemonLand/Pods-PokemonLand.release - production.xcconfig"

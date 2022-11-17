@@ -1,6 +1,5 @@
 import SwiftUI
 import Kingfisher
-import PokemonServices
 
 struct DetailView: View {
 

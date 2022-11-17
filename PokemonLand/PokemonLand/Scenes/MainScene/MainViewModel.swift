@@ -2,11 +2,16 @@ import SwiftUI
 import Combine
 
 protocol MainViewModelProtocol: ObservableObject {
+    var tabItems: [TabItem] { get }
     var networkConnected: Bool { get }
+    
+    func setup()
+    func getView(for item: TabItem) -> AnyView
 }
 
 class MainViewModel: MainViewModelProtocol {
 
+    @Published var tabItems: [TabItem] = []
     @Published var networkConnected: Bool = true
 
     private let reachabilityManager: ReachabilityManagerProtocol
@@ -14,7 +19,27 @@ class MainViewModel: MainViewModelProtocol {
 
     init(reachabilityManager: ReachabilityManagerProtocol = ReachabilityManager.shared) {
         self.reachabilityManager = reachabilityManager
+    }
+
+    func setup() {
         networkMonitor()
+        configureTabs()
+    }
+
+    func getView(for item: TabItem) -> AnyView {
+        switch item.kind {
+        case .list:
+            return AnyView(ListViewStack())
+        case .favorites:
+            return AnyView(FavoritesListViewStack())
+        }
+    }
+}
+
+// MARK: - Private
+private extension MainViewModel {
+    func configureTabs() {
+        tabItems = [.init(kind: .list), .init(kind: .favorites)]
     }
 
     func networkMonitor() {
@@ -26,3 +51,4 @@ class MainViewModel: MainViewModelProtocol {
             .store(in: &self.cancellables)
     }
 }
+
