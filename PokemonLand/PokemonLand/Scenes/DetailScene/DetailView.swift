@@ -12,7 +12,7 @@ struct DetailView<M: DetailViewModelProtocol, R: RouterProtocol>: View {
                 KFImage(viewModel.vo.imageUrl)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(height: 300)
+                    .frame(height: Constants.height)
                     .shadow(color: .cyan, radius: 20)
                 Divider()
 
@@ -30,6 +30,13 @@ struct DetailView<M: DetailViewModelProtocol, R: RouterProtocol>: View {
         .navigationBarTitle(viewModel.vo.name)
         .navigationBarTitleDisplayMode(.large)
         .toolbar(.hidden, for: .tabBar)
+    }
+}
+
+// MARK: - Private
+extension DetailView {
+    struct Constants {
+        static var height: CGFloat { 300 }
     }
 }
 

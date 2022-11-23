@@ -13,20 +13,17 @@ struct VerticalCardGrid<Content: View>: View {
                 }
             }
         }
-        .padding(EdgeInsets(top: 0, leading: Constants.margin,
-                             bottom: 0, trailing: Constants.margin))
+        .padding(EdgeInsets(top: 0,
+                            leading: Constants.margin,
+                            bottom: 0,
+                            trailing: Constants.margin))
     }
 }
 
 // MARK: - Private
 private extension VerticalCardGrid {
     struct Constants {
-        static var margin: CGFloat {
-            10
-        }
-        static var cellHeight: CGFloat {
-            250
-        }
+        static var margin: CGFloat { 10 }
         static func cellWidth(viewWidth: CGFloat) -> CGFloat {
             return (viewWidth - margin * 3)/2
         }

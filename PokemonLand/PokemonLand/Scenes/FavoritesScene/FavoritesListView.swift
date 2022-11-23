@@ -28,19 +28,4 @@ struct FavoritesListView<M: FavoritesListViewModelProtocol>: View {
 
 // MARK: - Private
 private extension FavoritesListView {
-    struct Constants {
-        static var margin: CGFloat {
-            10
-        }
-        static var cellHeight: CGFloat {
-            250
-        }
-        static func cellWidth(viewWidth: CGFloat) -> CGFloat {
-            return (viewWidth - margin * 3)/2
-        }
-    }
-
-    func config(viewWidth: CGFloat) -> [GridItem] {
-        return [GridItem(.adaptive(minimum: Constants.cellWidth(viewWidth: viewWidth)))]
-    }
 }

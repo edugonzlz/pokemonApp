@@ -10,8 +10,7 @@ struct PokemonCell: View {
             HStack {
                 Spacer()
                 FavoriteView(isFavorite: $vo.isFavorite)
-                    .padding(EdgeInsets(top: Constants.padding, leading: Constants.padding,
-                                        bottom: 0, trailing: Constants.padding))
+                    .padding(Constants.padding)
                     .onTapGesture {
                         vo.favoriteButtonTapped()
                     }
@@ -20,17 +19,23 @@ struct PokemonCell: View {
             KFImage(vo.imageURL)
                 .resizable()
                 .scaledToFit()
-                .frame(height: Constants.imageHeiht)
+                .frame(height: Constants.imageHeight)
                 .shadow(radius: Constants.radius)
-            
-            Text(vo.name)
-                .font(Font.title)
-                .foregroundColor(.black)
-                .multilineTextAlignment(.center)
-                .lineLimit(1)
-                .minimumScaleFactor(0.5)
-                .padding(EdgeInsets(top: 0, leading: Constants.padding/2,
-                                    bottom: Constants.padding, trailing: Constants.padding/2))
+                .padding(0)
+
+            VStack {
+                Text(vo.name)
+                    .font(Font.title)
+                    .foregroundColor(.black)
+                    .multilineTextAlignment(.center)
+                    .lineLimit(2)
+                    .padding(EdgeInsets(top: 0,
+                                        leading: Constants.padding,
+                                        bottom: Constants.padding,
+                                        trailing: Constants.padding))
+            }
+            .frame(height: Constants.nameHeight)
+            .padding(0)
         }
         .background(.red)
         .cornerRadius(Constants.radius)
@@ -42,7 +47,8 @@ private extension PokemonCell {
     struct Constants {
         static let padding: CGFloat = 10
         static let radius: CGFloat = 10
-        static let imageHeiht: CGFloat = 140
+        static let imageHeight: CGFloat = 140
+        static let nameHeight: CGFloat = 80
     }
 }
 
@@ -61,6 +67,6 @@ private struct FavoriteView: View {
 
 struct PokemonCell_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonCell(vo: .init(id: 1, name: "Name", imageURL: nil, isFavorite: true, favoriteButtonTapped: {}))
+        PokemonCell(vo: .init(id: 1, name: "Torpedo de la praderarrr, pecador, jarr", imageURL: nil, isFavorite: true, favoriteButtonTapped: {}))
     }
 }
