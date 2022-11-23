@@ -2,7 +2,13 @@ import Foundation
 import PokemonServices
 import SwiftUI
 
-final class Router: ObservableObject {
+protocol RouterProtocol: ObservableObject {
+    var path: [Route] { get set }
+
+    func popToRoot()
+}
+
+final class Router: RouterProtocol {
     @Published var path: [Route] = .init()
 
     func popToRoot() {
@@ -18,7 +24,7 @@ extension Route {
     func execute() -> AnyView {
         switch self {
         case .detail(let pokemon):
-            return DetailView(viewModel: DetailViewModel(data: pokemon)).anyView
+            return DetailView<DetailViewModel, Router>(viewModel: DetailViewModel(data: pokemon)).anyView
         }
     }
 }

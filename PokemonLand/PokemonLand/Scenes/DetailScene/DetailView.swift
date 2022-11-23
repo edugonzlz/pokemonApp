@@ -1,10 +1,10 @@
 import SwiftUI
 import Kingfisher
 
-struct DetailView: View {
+struct DetailView<M: DetailViewModelProtocol, R: RouterProtocol>: View {
 
-    @EnvironmentObject var router: Router
-    @ObservedObject var viewModel: DetailViewModel
+    @EnvironmentObject var router: R
+    @ObservedObject var viewModel: M
 
     var body: some View {
         ScrollView {
@@ -35,6 +35,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(viewModel: DetailViewModel(data: pokemonMock))
+        DetailView<DetailViewModel, Router>(viewModel: DetailViewModel(data: pokemonMock))
     }
 }

@@ -2,7 +2,6 @@ import Foundation
 import Combine
 import PokemonServices
 
-
 protocol DetailViewModelProtocol: ObservableObject {
     var vo: DetailViewModel.Vo { get }
     func getData()
