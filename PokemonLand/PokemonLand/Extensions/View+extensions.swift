@@ -9,3 +9,9 @@ extension View {
         }
     }
 }
+
+extension View {
+    var anyView: AnyView {
+        AnyView(self)
+    }
+}

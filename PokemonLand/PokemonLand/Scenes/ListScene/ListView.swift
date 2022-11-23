@@ -18,7 +18,7 @@ struct ListView<M: ListViewModelProtocol>: View {
                     }
                 }
             }
-            
+
             if viewModel.isLoading {
                 Spacer(minLength: 20)
                 ProgressView()
@@ -28,10 +28,7 @@ struct ListView<M: ListViewModelProtocol>: View {
             self.viewModel.getData()
         }
         .navigationDestination(for: Route.self) { route in
-            switch route {
-            case .detail(let pokemon):
-                DetailView(viewModel: DetailViewModel(data: pokemon))
-            }
+            route.execute()
         }
         .searchable(text: $viewModel.searchText)
         .navigationBarTitleDisplayMode(.inline)

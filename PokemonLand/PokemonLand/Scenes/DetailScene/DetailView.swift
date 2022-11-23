@@ -3,6 +3,7 @@ import Kingfisher
 
 struct DetailView: View {
 
+    @EnvironmentObject var router: Router
     @ObservedObject var viewModel: DetailViewModel
 
     var body: some View {
@@ -14,6 +15,11 @@ struct DetailView: View {
                     .frame(height: 300)
                     .shadow(color: .cyan, radius: 20)
                 Divider()
+
+                Button("Pop to root") {
+                    router.popToRoot()
+                }
+                .buttonStyle(.bordered)
                 Spacer()
             }
         }

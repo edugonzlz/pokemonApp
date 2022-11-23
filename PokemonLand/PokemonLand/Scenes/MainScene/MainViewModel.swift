@@ -29,9 +29,9 @@ class MainViewModel: MainViewModelProtocol {
     func getView(for item: TabItem) -> AnyView {
         switch item.kind {
         case .list:
-            return AnyView(ListViewStack())
+            return ListViewStack().anyView
         case .favorites:
-            return AnyView(FavoritesListViewStack())
+            return FavoritesListViewStack().anyView
         }
     }
 }

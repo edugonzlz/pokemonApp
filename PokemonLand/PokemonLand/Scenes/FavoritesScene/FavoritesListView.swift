@@ -19,10 +19,7 @@ struct FavoritesListView<M: FavoritesListViewModelProtocol>: View {
 
         }
         .navigationDestination(for: Route.self) { route in
-            switch route {
-            case .detail(let pokemon):
-                DetailView(viewModel: DetailViewModel(data: pokemon))
-            }
+            route.execute()
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarTitle("Favorites")

@@ -12,6 +12,7 @@ struct MainView<M: MainViewModelProtocol>: View {
                         Label(item.kind.name, systemImage: item.kind.image)
                     }
                     .configureNavigationForDevices()
+                    .environmentObject(Router())
             }
         }
         .accentColor(.cyan)

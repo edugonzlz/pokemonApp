@@ -156,8 +156,6 @@
 		F85AC61F274F8E8A00BF930F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				F80505142926434D00B529A5 /* TabItem.swift */,
-				F8050510292637CD00B529A5 /* Route.swift */,
 				F89A3AEB2916E66500FC5303 /* MainScene */,
 				F8CC15212914050200EB4BE1 /* FavoritesScene */,
 				F8367C85274BA3CB00480FD1 /* ListScene */,
@@ -249,6 +247,8 @@
 		F8CC15242914058200EB4BE1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F8050510292637CD00B529A5 /* Route.swift */,
+				F80505142926434D00B529A5 /* TabItem.swift */,
 				F8CC15252914058800EB4BE1 /* UI */,
 			);
 			path = Common;
