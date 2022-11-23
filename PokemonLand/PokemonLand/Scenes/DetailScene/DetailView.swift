@@ -4,7 +4,7 @@ import Kingfisher
 struct DetailView<M: DetailViewModelProtocol, R: RouterProtocol>: View {
 
     @EnvironmentObject var router: R
-    @ObservedObject var viewModel: M
+    @StateObject var viewModel: M
 
     var body: some View {
         ScrollView {
